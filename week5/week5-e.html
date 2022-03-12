@@ -34,10 +34,11 @@
 			background-attachment: fixed;
 
 		}
-		
-		b[id^="thebold"] {color: blue;}
+
 		
 		#thebold{color: red;font-size: 1.75em} /*purposely included*/
+
+		b, #thebold {color: blue;}
 
 		#lorem{ 
 			height: 500px; 
@@ -46,15 +47,16 @@
 			border-bottom: 5px solid deepskyblue ;
 			border-right: 10px solid blue;
 			border-left: 10px solid blue;
-			font-size: 32px;
+			font-size: 2em;
 
 		}
+
 		#anotherlorem{
 
 			height: 200px;
 			width: 50%;
 			overflow: hidden;
-			line-height: normal;
+			line-height: 1.1em;
 			font-family: courier new;
 			border: solid;
 			border-width: thin;
@@ -66,11 +68,9 @@
 			width: 400px; 
 			border-radius: 50px; 
 			text-align: center;
-			border: solid;
-			border-width: thin;
+			border: 1px solid;
 			display: inline-block;
-			/*font-size: 16px;*/
-
+			font-size: 16px;
 
 		}
 
@@ -87,7 +87,7 @@
 
 		div>p>span{
 
-			font-size: 21.6px;
+			font-size: 1.35em;
 			color: magenta;
 			text-shadow: 10px 5px 5px orange;
 			font-family: courier new;
@@ -101,6 +101,8 @@
 			padding-top: 20px;
 			padding-left: 30px;
 			padding-right: 30px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
 
 		}
 
@@ -108,7 +110,7 @@
 
 			text-transform: uppercase;
 			text-align: justify;
-			margin-top: 1.5px;
+			margin-top: 1.2em;
 			overflow: scroll;
 			margin: auto;
 			margin-top: 1.2;
