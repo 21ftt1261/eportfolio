@@ -72,6 +72,8 @@
       padding: 10px;
       }
 
+      .submain>div:nth-child(2) { padding: 10px; }
+
     }
 
     /*Tablet*/
@@ -92,7 +94,7 @@
       }
 
       .submain>div:nth-child(1) { background-color: lightseagreen; }
-      .submain>div:nth-child(2) { background-color: skyblue; }
+      .submain>div:nth-child(2) { background-color: skyblue; padding: 10px; }
 
       .submain:nth-child(1) { grid-area: 1 / 1 / 2 / 3 }
       .submain:nth-child(2) { grid-area: 2 / 1 / 3 / 3 }
@@ -118,14 +120,23 @@
         font-size: 1.5em;
       }
 
-      .submain>div:nth-child(1) {grid-row: 2em; background-color: lightseagreen;}
+      .submain>div:nth-child(1) {
+        grid-row: 2em; 
+        background-color: lightseagreen;
+      }
 
-      .submain>div:nth-child(2) {grid-row: auto; background-color: skyblue;}
+      .submain>div:nth-child(2) {
+        grid-row: auto; 
+        background-color: skyblue; 
+        padding: 10px;
+      }
 
       .submain:nth-child(3) { grid-area: 3 / 1 / 4 / 2 }
       .submain:nth-child(4) { grid-area: 4 / 1 / 5 / 2 }
       .submain:nth-child(5) { grid-area: 5 / 1 / 6 / 2 }
       .submain:nth-child(6) { grid-area: 6 / 1 / 7 / 2 }
+      .submain:nth-child(7) { grid-area: 7 / 1 / 8 / 2 }
+      .submain:nth-child(8) { grid-area: 8 / 1 / 9 / 2 }
 
     }
 
