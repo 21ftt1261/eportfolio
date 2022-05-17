@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story1</title>
+
+<!-- <link rel="stylesheet" type="text/css" href="Carousel.css"> -->
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+	body {
+		margin: 0;
+		padding: 0;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "Roboto", sans-serif;
+		background: #ADD8E6;
+	}
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.book {
+		display: flex;
+	}
+
+	#cover {
+		width: 460px;
+		height: 410px;
+	}
+
+	.flip-book{
+		width: 460px;
+		height: 410px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.flip {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform-origin: left;
+		transform-style: preserve-3d;
+		transform: rotateY(0deg);
+		transition: .5s;
+		color: #000;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 24px;
+	}
+
+	.front {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		box-sizing: border-box;
+		padding: 0 13px;
+		box-shadow: inset 20px 0 50px rgba(0,0,0,0.5) 0 2px 5px rgba(0,0,0,.5);
+	}
+
+	.back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
+		background: #000;
+	}
+
+	.next-btn {
+		position: absolute;
+		bottom: 13px;
+		right: 13px;
+		cursor: pointer;
+		color: #000;
+	}
+
+	.back-btn {
+		position: absolute;
+		bottom: 13px;
+		right: 13px;
+		cursor: pointer;
+		color: #807f7d;
+	}
+
+	#p1 {
+		z-index: 3;
+	}
+
+	#p2 {
+		z-index: 2;
+	}
+
+	#p3 {
+		z-index: 1;
+	}
+
+	#c1:checked ~ .flip-book #p1 {
+		transform: rotateY(-180deg);
+		z-index: 1;
+	}
+
+	#c2:checked ~ .flip-book #p2 {
+		transform: rotateY(-180deg);
+		z-index: 2;
+	}
+
+	#c3:checked ~ .flip-book #p3 {
+		transform: rotateY(-180deg);
+		z-index: 3;
+	}
+</style>
+
+</head>
+<body>
+
+	<!-- Book START -->
+	<div class="book">
+
+		<input type="checkbox" id="c1">
+		<input type="checkbox" id="c2">
+		<input type="checkbox" id="c3">
+
+		<div id="cover"><img src="images/nakhoda.jpg"></div>
+
+		<div class="flip-book">
+			<div class="flip" id="p1">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/nakhoda.jpg">
+					<label class="back-btn" for="c1">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<h2>Nakhoda Manis</h2>
+				<p>Once upon a time there was a widow, Dang Ambon, who lived with her only son in Kampong Ayer. They lived a comfortable life but were certainly not rich. She loved her son Manis so very much. As a boy she used to sing this lullaby to him:</p>
+
+				<p>Manis, Manis,<br>
+				My sweet natured boy!<br>
+				Manis, Manis,<br>
+				Devoted and kind,<br>
+				Manis, Manis,<br>
+				Truly a mother’s pride!</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c1">Next</label>
+					<!-- Next Button END -->
+				</div>
+			</div>
+
+			<div class="flip" id="p2">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/nakhoda.jpg">
+					<label class="back-btn" for="c2">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+
+					<p>When he was older Manis wanted to travel. He wanted to become rich. As a loving mother Dang Ambon knew she would miss him terribly. But because her love was so strong she allowed him to go. She wanted him to be the happiest he could possibly be.</p>
+
+					<p>For a long time there was no news from Manis. To console herself in her loneliness Dang Ambon sang her song everyday:</p>
+
+					<p>Manis, Manis,<br>
+					My sweet natured boy!<br>
+					Manis, Manis,<br>
+					Devoted and kind,<br>
+					Manis, Manis,<br>
+					Truly a mother’s pride!</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c2">Next</label>
+					<!-- Next Button END -->					
+				</div>
+			</div>
+
+			<div class="flip" id="p3">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/nakhoda.jpg">
+					<label class="back-btn" for="c3">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+
+					<p>Many years passed and there was still no news from Manis. Dang Ambon kept herself busy by helping the poor. She gave whatever she could until the day she herself became poor. Despite her now sad situation she still sang everyday:</p>
+
+					<p>Manis, Manis,<br>
+					My sweet natured boy!<br>
+					Manis, Manis,<br>
+					Devoted and kind,<br>
+					Manis, Manis,<br>
+					Truly a mother’s pride!</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c3">Next</label>
+					<!-- Next Button END -->
+				</div>
+			</div>
+
+			<div class="flip" id="p3">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/nakhoda.jpg">
+					<label class="back-btn" for="c3">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<p>One day a large trading ship docked at Kampong Ayer. There was a rumour that the owner of the ship was Manis! He was already called Nakhoda Manis for being the rich captain of the ship. Excitedly Dang Ambon paddled her small boat in the direction of the big ship. She was to be reunited with her beloved Manis! In anticipation she sang:</p>
+
+					<p>Manis, Manis,<br>
+					My sweet natured boy!<br>
+					Manis, Manis,<br>
+					Devoted and kind,<br>
+					Manis, Manis,<br>
+					Truly a mother’s pride!</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c3">Next</label>
+					<!-- Next Button END -->
+				</div>
+			</div>
+
+			<div class="flip" id="p3">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<!-- <img src="images/nakhoda.jpg"> -->
+					<label class="back-btn" for="c3">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<p>Nakhoda Manis was proud and he was indeed rich. When he saw his mother he was ashamed of her and turned away claiming not to know this poor old woman. Dang Ambon was heartbroken. In her despair she cursed the ship full of riches – riches that had taken her son’s love away from her.</p>
+
+					<p>She would never sing her song again…</p>
+
+					<p>Suddenly, lighting flashed and there was a heavy storm. Rain, thunder and lightning!!!</p>
+
+					<p>When the storm cleared, her son’s ship was gone and in its place was a huge rock in the sea.</p>
+
+					<p>Today this rock is known as Jong Batu.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c3">Next</label>
+					<!-- Next Button END -->
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- Book END -->
+
+
+
+</body>
+</html>

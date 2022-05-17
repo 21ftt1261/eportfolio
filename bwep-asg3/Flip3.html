@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story3</title>
+
+<!-- <link rel="stylesheet" type="text/css" href="Carousel.css"> -->
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+	body {
+		margin: 0;
+		padding: 0;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: "Roboto", sans-serif;
+		background: #ADD8E6;
+	}
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.book {
+		display: flex;
+	}
+
+	#cover {
+		width: 460px;
+		height: 410px;
+	}
+
+	.flip-book{
+		width: 460px;
+		height: 410px;
+		position: relative;
+		perspective: 1500px;
+	}
+
+	.flip {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform-origin: left;
+		transform-style: preserve-3d;
+		transform: rotateY(0deg);
+		transition: .5s;
+		color: #000;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 24px;
+	}
+
+	.front {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		box-sizing: border-box;
+		padding: 0 13px;
+		box-shadow: inset 20px 0 50px rgba(0,0,0,0.5) 0 2px 5px rgba(0,0,0,.5);
+	}
+
+	.back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		transform: rotateY(180deg);
+		backface-visibility: hidden;
+		background: #000;
+	}
+
+	.next-btn {
+		position: absolute;
+		bottom: 13px;
+		right: 13px;
+		cursor: pointer;
+		color: #000;
+	}
+
+	.back-btn {
+		position: absolute;
+		bottom: 13px;
+		right: 13px;
+		cursor: pointer;
+		color: #807f7d;
+	}
+
+	#p1 {
+		z-index: 5;
+	}
+
+	#p2 {
+		z-index: 4;
+	}
+
+	#p3 {
+		z-index: 3;
+	}
+
+	#p4 {
+		z-index: 2;
+	}
+
+	#p5 {
+		z-index: 1;
+	}
+
+	#c1:checked ~ .flip-book #p1 {
+		transform: rotateY(-180deg);
+		z-index: 1;
+	}
+
+	#c2:checked ~ .flip-book #p2 {
+		transform: rotateY(-180deg);
+		z-index: 2;
+	}
+
+	#c3:checked ~ .flip-book #p3 {
+		transform: rotateY(-180deg);
+		z-index: 3;
+	}
+
+	#c4:checked ~ .flip-book #p4 {
+		transform: rotateY(-180deg);
+		z-index: 3;
+	}
+
+	#c5:checked ~ .flip-book #p5 {
+		transform: rotateY(-180deg);
+		z-index: 3;
+	}
+</style>
+
+</head>
+<body>
+
+	<!-- Book START -->
+	<div class="book">
+
+		<input type="checkbox" id="c1">
+		<input type="checkbox" id="c2">
+		<input type="checkbox" id="c3">
+		<input type="checkbox" id="c4">
+		<input type="checkbox" id="c5">
+
+		<!-- 1st Page -->
+		<div id="cover"><img src="images/mousedeer.jpg"></div>
+
+		<div class="flip-book">
+
+			<div class="flip" id="p1">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/mousedeer.jpg">
+					<label class="back-btn" for="c1">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<h2>The Clever Mouse Deer</h2>
+				<p>One day, a buffalo was eating grass by the riverbank when he heard the voice of someone crying in pain.</p>
+ 
+				<p>“Help! Help! Please let me free,” heard the buffalo. He ran to the river where the voice came from. There he found a crocodile with a big log on his back. “Help me, Mr Buffalo! This log fell on my back. I cannot move and I’m in pain,” cried the crocodile.</p>
+
+				<p>Feeling sorry for the crocodile, the buffalo used his strong horn to lift the log off the crocodile. The log was very heavy. The buffalo tried with all his might until the crocodile was free.</p>
+
+				<p>“Thank you, Mr Buffalo! You are very kind to help me,” said the crocodile.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c1">Next</label>
+					<!-- Next Button END -->
+
+				</div>
+
+			</div>
+
+			<div class="flip" id="p2">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/mousedeer.jpg">
+					<label class="back-btn" for="c2">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+
+					<p>“You are welcome,” replied the buffalo. “I’m happy to be of help to you.”</p>
+
+					<p>As the buffalo was leaving, the crocodile suddenly bit one of the buffalo’s legs. The buffalo screamed in pain. The crocodile said, “I’m very hungry, Mr Buffalo. I cannot help wanting to eat your leg.”</p>
+
+					<p>The buffalo was disappointed at the crocodile, whose life the buffalo saved. The buffalo could not believe that the crocodile would return his kindness that way.</p>
+
+					<p>The mouse deer was passing by and saw the buffalo’s leg in the mouth of the crocodile. He asked the buffalo what happened.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c2">Next</label>
+					<!-- Next Button END -->					
+
+				</div>
+			</div>
+
+			<div class="flip" id="p3">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/mousedeer.jpg">
+					<label class="back-btn" for="c3">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+
+					<p>“I saved the crocodile’s life by removing the log off his back. But now he wants to have me for dinner!” the buffalo cried, having been let down by the crocodile. The mouse deer thought for a moment. “Hmmm... I could not believe that the buffalo has the strength to lift such a big and heavy log off the crocodile,” the mouse deer exclaimed.</p>
+
+					<p>“It’s the truth. I lifted the log by myself,” replied the buffalo proudly.</p>
+
+					<p>“He is telling the truth, Mr Mouse Deer,” added the crocodile.</p>
+
+					<p>The mouse deer replied, “I will only believe in your strength, Mr Buffalo, if I see you lift the log.” The mouse deer then asked the crocodile to free the buffalo’s leg. The crocodile was curious what the mouse deer was up to so he released the buffalo.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c3">Next</label>
+					<!-- Next Button END -->
+
+				</div>
+
+			</div>
+
+			<div class="flip" id="p4">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<img src="images/mousedeer.jpg">
+					<label class="back-btn" for="c4">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<p>“Now that you’re free, Mr Buffalo, put the log back on the crocodile’s back. Prove to me you are strong enough to lift the log,” said the mouse deer.</p>
+
+					<p>The buffalo was challenged to prove his strength to the mouse deer. He gathered all his might to lift the heavy log until it was again on the crocodile’s back. The crocodile screamed in pain as the log landed on his body. “Oh no! Please take this log off me, Mr Buffalo,” pleaded the crocodile.</p>
+
+					<p>“Aha, I got you! You fell into my trick,” exclaimed the mouse deer. “Now that you are in pain, Mr Crocodile, you know how the buffalo felt when you bit his leg.”</p>
+
+					<p>The buffalo wanted to relieve the crocodile of his pain. “But if I free him this time, he might want to bite me again,” thought the buffalo.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c4">Next</label>
+					<!-- Next Button END -->
+
+				</div>
+
+			</div>
+
+			<div class="flip" id="p5">
+
+				<!-- Back Button START -->
+				<div class="back">
+					<!-- <img src="images/mousedeer.jpg"> -->
+					<label class="back-btn" for="c5">Back</label>
+				</div>
+				<!-- Back Button END -->
+
+				<div class="front">
+					<p>The crocodile replied, “I realize I have been ungrateful to the buffalo. I’m sorry for what I did, Mr Buffalo. I promise not to harm you again. Only you have the strength to help me.”</p>
+
+					<p>The mouse deer and the buffalo felt the sincerity of the crocodile. The buffalo again used all his strength to lift the log off the crocodile’s back.</p>
+
+					<p>“Thank you, Mr Buffalo. You are very compassionate,” said the crocodile.</p>
+
+					<p>“Thank you, Mouse Deer, for teaching me to be kind to those who help me.”</p>
+
+					<p>The mouse deer was happy to hear that the crocodile learned his lesson. He was also glad that the buffalo was safe. Once again, the mouse deer used his cleverness to help other animals.</p>
+
+					<!-- Next Button START -->
+					<label class="next-btn" for="c5">Next</label>
+					<!-- Next Button END -->
+
+				</div>
+
+			</div>
+			
+
+		</div>
+
+	</div>
+	<!-- Book END -->
+
+
+
+</body>
+</html>
+
+	<!-- Previous Button START -->
+<!-- 	<button id="prev-btn">
+		<i class="fas fa-arrow-circle-left"></i>
+	</button> -->
+	<!-- Previous Button END -->
+	<!-- Next Button START -->
+<!-- 	<button id="next-btn">
+		<i class="fas fa-arrow-circle-right"></i>
+	</button> -->
+	<!-- Next Button END -->
