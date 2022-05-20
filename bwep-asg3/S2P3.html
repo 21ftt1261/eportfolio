@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story2Page3</title>
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+	body {
+		background-color: white;
+	}
+
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 400px;
+		height: 300px;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+	}
+
+	#page3 {
+		line-height: 30px;
+	}
+
+	.image {
+		margin: 0 auto;
+	}
+
+	.container {
+		display: grid;
+		grid-template-rows: auto auto auto;
+	}
+
+	.grid1 {
+		width: 60%;
+		display: grid;
+		grid-template-columns: 30% 30% 30%;
+		margin: 0 auto;
+		border: 1px solid;
+	}
+
+	/*RATING CSS*/
+	.front>h4 {
+		text-align: center;
+
+	}
+
+	.grid2 {
+		display: grid;
+		grid-template-columns: 50% 20%;
+		/*border: 1px solid;*/
+		margin-top: 280px;
+	}
+
+	.btn {
+    /*float: left;*/
+    box-sizing: border-box;
+    margin-left: 30PX;
+    margin-top: 10px;
+	}
+
+	.rate {
+	    float: left;
+	    height: 46px;
+	    padding: 0 10px;
+	    margin: 0 auto;
+	    margin-top: 50px;
+	}
+	.rate:not(:checked) > input {
+	    position:absolute;
+	    top:-9999px;
+	}
+	.rate:not(:checked) > label {
+	    float:right;
+	    width:1em;
+	    overflow:hidden;
+	    white-space:nowrap;
+	    cursor:pointer;
+	    font-size:30px;
+	    color:#ccc;
+	}
+	.rate:not(:checked) > label:before {
+	    content: '★ ';
+	}
+	.rate > input:checked ~ label {
+	    color: #ffc700;    
+	}
+	.rate:not(:checked) > label:hover,
+	.rate:not(:checked) > label:hover ~ label {
+	    color: #deb217;  
+	}
+	.rate > input:checked + label:hover,
+	.rate > input:checked + label:hover ~ label,
+	.rate > input:checked ~ label:hover,
+	.rate > input:checked ~ label:hover ~ label,
+	.rate > label:hover ~ input:checked ~ label {
+	    color: #c59b08;
+	}
+
+	@media screen and (max-width: 479px) {
+
+		.grid1 {
+			visibility: hidden;
+		}
+
+		#page3 {
+
+			line-height: 25px;
+			font-size: 12px;
+		}
+
+		div>img {
+		width: 90%;
+		height: 90%;
+
+	}
+
+</style>
+
+</head>
+<body onload="save()">
+
+<div class="container">
+
+	<div class="image"><img src="images/babau3.jpg"></div>
+	
+	<div id="page3">
+
+	<p>That evening Babau was brought to the middle of the jungle and was tied to a tree. The villagers hid in a hut on a tree top. The tiger appeared but Babau pretended he was already dead instinctively knowing that the tiger preferred fresh meat. The tiger, believing Babau to be dead, turned his back and started to leave. Babau saw his chance to strike the tiger’s stomach with his horns inflicting injury enough to scare the tiger away. He never came back.</p>
+
+	<p>The villagers were surprised by the intelligence, cunning, bravery, and swiftness of Babau. Was this the same Babau they called foolish, fat, and lazy every day?</p>
+
+	<p>The next morning the villagers were not sure how to treat Babau. But Babau held no grudges and in fact he was ready to be put to work as usual. Embarrassed by their treatment of Babau the villagers came up with a different version of their song:</p>
+	
+	<p>Babau Babau
+	Cunning Babau,
+	Babau Babau
+	Strong Babau,
+	Babau, Babau,
+	Brave and mighty Babau,
+	Babau, Babau
+	Smart Babau,
+	What are you going to do
+	Now that we respect you?</p>
+
+	</div>
+
+	<div class="grid1">
+
+		<div>
+		<h3>Select Language</h3>
+			<select id="translate" onclick="translator()">
+			<option value="0">Select</option>
+			<option value="English">English</option>
+			<option value="Malay">Malay</option>
+			</select>
+		</div>
+
+		<div>
+			<h3>Font Size</h3>
+			<select id="fontChanger" onclick="sizeChanger()"> 
+				<option value="0" >Select</option>
+				<option value="1" style="font-size:1em">Small A</option>
+				<option value="1.2" style="font-size:1.2em">Medium A</option>
+				<option value="1.5" style="font-size:1.5em">Big A</option>
+			</select>
+		</div>
+
+		<div>
+			<h3>Select Voice <select id="voicelist"></select></h3>
+			
+			<div>
+			<button id="speak">Speak</button>
+			<button onclick="pause()">Pause</button>
+			<button onclick="resume()">Resume</button>
+			<button onclick="stop()">Stop</button>
+			</div>
+		</div>
+
+		<div class="rate" onclick="average()">
+		    <input type="radio" id="star5" name="rate" value="5">
+		    <label for="star5" title="text">5 stars</label>
+		    <input type="radio" id="star4" name="rate" value="4">
+		    <label for="star4" title="text">4 stars</label>
+		    <input type="radio" id="star3" name="rate" value="3">
+		    <label for="star3" title="text">3 stars</label>
+		    <input type="radio" id="star2" name="rate" value="2">
+		    <label for="star2" title="text">2 stars</label>
+		    <input type="radio" id="star1" name="rate" value="1">
+		    <label for="star1" title="text">1 star</label>
+		    <button>Rate!</button>
+		 </div>
+
+		<div id="averageRating"></div>
+
+	</div>
+</div>
+
+	<script type="text/javascript">
+
+		var story2Page3 = "That evening Babau was brought to the middle of the jungle and was tied to a tree. The villagers hid in a hut on a tree top. The tiger appeared but Babau pretended he was already dead instinctively knowing that the tiger preferred fresh meat. The tiger, believing Babau to be dead, turned his back and started to leave. Babau saw his chance to strike the tiger’s stomach with his horns inflicting injury enough to scare the tiger away. He never came back.The villagers were surprised by the intelligence, cunning, bravery, and swiftness of Babau. Was this the same Babau they called foolish, fat, and lazy every day? The next morning the villagers were not sure how to treat Babau. But Babau held no grudges and in fact he was ready to be put to work as usual. Embarrassed by their treatment of Babau the villagers came up with a different version of their song: Babau Babau, Cunning Babau, Babau Babau, Strong Babau, Babau, Babau, Brave and mighty Babau, Babau, Babau, Smart Babau, What are you going to do, Now that we respect you?"
+
+		var story2Page3Malay = "Petang itu Babau dibawa ke tengah-tengah hutan dan diikat pada sebatang pokok. Penduduk kampung bersembunyi di pondok di atas pokok. Harimau itu muncul tetapi Babau berpura-pura dia sudah mati secara naluri mengetahui bahawa harimau itu lebih suka daging segar. Harimau itu, yang percaya Babau sudah mati, berpaling ke belakang dan mula pergi. Babau melihat peluangnya untuk memukul perut harimau itu dengan tanduknya yang menyebabkan kecederaan cukup untuk menakutkan harimau itu. Dia tidak pernah kembali. Penduduk kampung terkejut dengan kepintaran, kelicikan, keberanian, dan kepantasan Babau. Adakah ini Babau yang sama yang mereka panggil bodoh, gemuk, dan malas setiap hari? Keesokan paginya penduduk kampung tidak pasti bagaimana untuk merawat Babau. Tetapi Babau tidak berdendam malah dia sudah bersedia untuk bertugas seperti biasa. Malu dengan layanan mereka terhadap Babau, penduduk kampung menghasilkan versi lagu mereka yang berbeza: Babau Babau, Babau Licik, Babau Babau, Babau Kuat, Babau, Babau, Babau yang berani dan gagah perkasa, Babau, Babau, Babau Pintar, Apa yang anda akan lakukan, Sekarang kami menghormati anda?"
+
+		localStorage.setItem("story2Page3", story2Page3);
+		localStorage.setItem("story2Page3Malay", story2Page3Malay);
+
+		var page3 = document.getElementById("page3");
+
+		page3.style.textAlign = "justify";
+
+		var translate = document.getElementById("translate");
+		var saveLanguage = localStorage.getItem("selectedLanguage");
+		var saveFontSize = localStorage.getItem("selectedFontSize");
+
+		var choice = document.getElementById("fontChanger");
+
+		var speech;
+
+	function translator() {
+
+		if (translate.value == "English") {
+
+			page3.innerHTML = localStorage.getItem("story2Page3");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story2Page3");
+			localStorage.setItem("currentStory", speech);
+
+		}
+
+		else if (translate.value == "Malay") {
+
+			page3.innerHTML = localStorage.getItem("story2Page3Malay");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story2Page3Malay");
+			localStorage.setItem("currentStory", speech);
+
+		}
+		
+	}
+
+	function save() {
+
+		if (saveLanguage == "English") {
+
+			page3.innerHTML = localStorage.getItem("story2Page3");
+
+		} else if (saveLanguage == "Malay") {
+
+			page3.innerHTML = localStorage.getItem("story2Page3Malay");
+
+		}
+
+		if (saveFontSize == "1") {
+
+			page3.style.fontSize = "1em";
+
+		} else if (saveFontSize == "1.2") {
+
+			page3.style.fontSize = "1.2em";
+
+		} else if (saveFontSize == "1.5") {
+
+			page3.style.fontSize = "1.5em"
+		}
+
+	}
+
+	function sizeChanger() {
+
+		if (choice.value == "1" || choice.value == "0") {
+
+			page3.style.fontSize = "1em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+
+		} else if (choice.value == "1.2") {
+
+			page3.style.fontSize = "1.2em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+
+		} else if (choice.value == "1.5") {
+
+			page3.style.fontSize = "1.5em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+	}
+
+
+	// VOICE 
+
+		var voicelist = document.querySelector('#voicelist');
+		var btnSpeak = document.querySelector('#speak');
+
+		var tts = window.speechSynthesis;
+
+		var voices = [];
+
+		GetVoices();
+
+		if (speechSynthesis !== undefined) {
+
+			speechSynthesis.onvoiceschanged = GetVoices;
+
+		}
+
+		btnSpeak.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("story2page3"));
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			tts.speak(toSpeak);
+		});
+
+		function pause(){
+			tts.pause();
+		}
+
+		function resume(){
+			tts.resume();
+		}
+		function stop(){
+			tts.cancel();
+		}
+
+		function GetVoices(){
+			voices = tts.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+		var star5 = document.getElementById("star5");
+        var star4 = document.getElementById("star4");
+        var star3 = document.getElementById("star3");
+        var star2 = document.getElementById("star2");
+        var star1 = document.getElementById("star1");
+        var rate = 0;
+        var total = 0;
+        var inti = document.getElementById("inti");
+        var avgRate = 0;
+
+        var next5 = document.getElementById("next5");
+        var next4 = document.getElementById("next4");
+        var next3 = document.getElementById("next3");
+        var next2 = document.getElementById("next2");
+        var next1 = document.getElementById("next1");
+        var avg = localStorage.getItem("rate");
+    
+    function average() {
+
+        if (star5.checked) {
+            rate = 5;
+            total = 1;
+        }
+        if (star4.checked) {
+            rate = 4;
+            total = 1;
+        }
+        if (star3.checked) {
+            rate = 3;
+            total = 1;
+        }
+        if (star2.checked) {
+            rate = 2;
+            total = 1;
+        }
+        if (star1.checked) {
+            rate = 1;
+            total = 1;
+        }
+
+        var storeRate = localStorage.getItem("story2Rating");
+        var storeTotal = localStorage.getItem("story2Total");
+
+        rate += Number(storeRate);
+        total += Number(storeTotal);
+        avgRate = rate / total;
+
+        localStorage.setItem("story2Rating", rate);
+        localStorage.setItem("story2Total", total);
+        localStorage.setItem("story2AvgRating" ,avgRate);
+
+        averageRating.innerHTML = "Average rating: " + localStorage.getItem("story2AvgRating");
+
+        alert("You have rate the story.");
+    }
+
+
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story2Page3</title>
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+	body {
+		background-color: white;
+	}
+
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 400px;
+		height: 300px;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+	}
+
+	#page2 {
+		line-height: 30px;
+	}
+
+	.image {
+		margin: 0 auto;
+	}
+
+	.container {
+		display: grid;
+		grid-template-rows: auto auto auto;
+	}
+
+	.grid1 {
+		width: 60%;
+		display: grid;
+		grid-template-columns: 30% 30% 30%;
+		margin: 0 auto;
+		border: 1px solid;
+	}
+
+	/*RATING CSS*/
+	.front>h4 {
+		text-align: center;
+
+	}
+
+	.grid2 {
+		display: grid;
+		grid-template-columns: 50% 20%;
+		/*border: 1px solid;*/
+		margin-top: 280px;
+	}
+
+	.btn {
+    /*float: left;*/
+    box-sizing: border-box;
+    margin-left: 30PX;
+    margin-top: 10px;
+	}
+
+	.rate {
+	    /*float: left;*/
+	    height: 46px;
+	    /*padding: 0 10px;*/
+	    margin: 0 auto;
+	    margin-top: 50px;
+	}
+	.rate:not(:checked) > div > div > input {
+	    position:absolute;
+	    top:-9999px;
+	}
+	.rate:not(:checked) > div > div > label {
+	    float:right;
+	    width:1em;
+	    overflow:hidden;
+	    white-space:nowrap;
+	    cursor:pointer;
+	    font-size:30px;
+	    color:#ccc;
+	}
+	.rate:not(:checked) > div > div > label:before {
+	    content: '★ ';
+	}
+	.rate > div > div > input:checked ~ label {
+	    color: #ffc700;    
+	}
+	.rate:not(:checked) > div > div > label:hover,
+	.rate:not(:checked) > div > div > label:hover ~ label {
+	    color: #deb217;  
+	}
+	.rate > div > div > input:checked + label:hover,
+	.rate > div > div > input:checked + label:hover ~ label,
+	.rate > div > div > input:checked ~ label:hover,
+	.rate > div > div > input:checked ~ label:hover ~ label,
+	.rate > div > div > label:hover ~ input:checked ~ label {
+	    color: #c59b08;
+	}
+
+	@media screen and (max-width: 479px) {
+
+		.grid1 {
+			visibility: hidden;
+		}
+
+		#page2 {
+
+			line-height: 25px;
+			font-size: 12px;
+		}
+
+		div>img {
+		width: 90%;
+		height: 90%;
+	}
+
+	}
+
+</style>
+
+</head>
+<body onload="save()"> 
+
+<div class="container">
+
+	<h2>THE MIGHTY BABAU</h2>
+
+	<div class="image"><img src="images/babau2.jpg"></div>
+
+	<div id="page2">
+
+	<p>The villagers of Kampong Serai were scared and they had good reason to be! Nearly every night a tiger roamed their village. Nobody felt safe anymore and they decided something had to be done. They had to catch this tiger but how could they do this?</p>
+	 
+	<p>At the start of a working day in the fields, Babau, a buffalo, was being readied to plough all day long in the searing heat. The villagers mocked him by singing:</p>
+
+	<p>Babau, Babau
+	Foolish Babau,
+	Babau, Babau
+	Fat Babau,
+	Babau, Babau
+	Lazy Babau,
+	Babau, Babau
+	You are a fool, Babau,
+	What are you going to do?</p>
+
+	<p>When they had finished singing the villagers realized that Babau could be used as the bait to catch the tiger. Babau was big and so appetizing to a fierce hungry tiger! Babau understood the plan and was saddened to hear that he was to be sacrificed but he was helpless. Indeed, what was he going to do?</p>
+
+	<p>The plan was set for the following day but for now work had to be done. At the end of the day, as usual, the villagers sang to the exhausted Babau:</p>
+
+	<p>Babau, Babau
+	Foolish Babau,
+	Babau, Babau
+	Fat Babau,
+	Babau, Babau
+	Lazy Babau,
+	Babau, Babau
+	You are a fool, Babau,
+	What are you going to do?</p>
+	</div>
+
+
+	<div class="grid1">
+
+		<div>
+		<h3>Select Language</h3>
+			<select id="translate" onclick="translator()">
+			<option value="0">Select</option>
+			<option value="English">English</option>
+			<option value="Malay">Malay</option>
+			</select>
+		</div>
+
+		<div>
+			<h3>Font Size</h3>
+			<select id="fontChanger" onclick="sizeChanger()"> 
+				<option value="0" >Select</option>
+				<option value="1" style="font-size:1em">Small A</option>
+				<option value="1.2" style="font-size:1.2em">Medium A</option>
+				<option value="1.5" style="font-size:1.5em">Big A</option>
+			</select>
+		</div>
+
+		<div>
+			<h3>Select Voice <select id="voicelist"></select></h3>
+			
+			<div>
+			<button id="speak">Speak</button>
+			<button onclick="pause()">Pause</button>
+			<button onclick="resume()">Resume</button>
+			<button onclick="stop()">Stop</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+	<script type="text/javascript">
+
+		var story2Page2 = "The villagers of Kampong Serai were scared and they had good reason to be! Nearly every night a tiger roamed their village. Nobody felt safe anymore and they decided something had to be done. They had to catch this tiger but how could they do this? At the start of a working day in the fields, Babau, a buffalo, was being readied to plough all day long in the searing heat. The villagers mocked him by singing: Babau, Babau, Foolish Babau, Babau, Babau, Fat Babau, Babau, Babau, Lazy Babau, Babau, Babau, You are a fool, Babau, What are you going to do? When they had finished singing the villagers realized that Babau could be used as the bait to catch the tiger. Babau was big and so appetizing to a fierce hungry tiger! Babau understood the plan and was saddened to hear that he was to be sacrificed but he was helpless. Indeed, what was he going to do?The plan was set for the following day but for now work had to be done. At the end of the day, as usual, the villagers sang to the exhausted Babau: Babau, Babau, Foolish Babau, Babau, Babau, Fat Babau, Babau, Babau, Lazy Babau, Babau, Babau, You are a fool, Babau, What are you going to do?"
+
+		var story2Page2Malay = "Penduduk Kampung Serai berasa takut dan mereka mempunyai alasan yang kukuh untuk menjadi takut! Hampir setiap malam harimau berkeliaran di kampung mereka. Tiada siapa yang berasa selamat lagi dan mereka memutuskan sesuatu perlu dilakukan. Mereka terpaksa menangkap harimau ini tetapi bagaimana mereka boleh melakukan ini? Pada permulaan hari bekerja di ladang, Babau, seekor kerbau, sedang bersiap untuk membajak sepanjang hari dalam cuaca panas yang membakar. Orang kampung mengejeknya dengan menyanyikan: Babau, Babau, Babau Bodoh, Babau, Babau, Babau Gemuk, Babau, Babau, Babau Malas, Babau, Babau, Bodohlah, Babau, Apa yang kamu akan lakukan? Apabila mereka selesai menyanyi, penduduk kampung menyedari bahawa Babau boleh digunakan sebagai umpan untuk menangkap harimau itu. Babau adalah besar dan begitu menyelerakan untuk seekor harimau lapar yang ganas! Babau memahami rancangan itu dan sedih mendengar bahawa dia akan dikorbankan tetapi dia tidak berdaya. Memang, apa yang dia akan lakukan? Pelan itu ditetapkan untuk hari berikutnya tetapi buat masa ini kerja perlu dilakukan. Pada penghujung hari, seperti biasa, orang kampung menyanyi kepada Babau yang kepenatan: Babau, Babau, Babau Bodoh, Babau, Babau, Babau Gemuk, Babau, Babau, Babau Malas, Babau, Babau, Awak bodoh, Babau, Apa yang awak akan lakukan?"
+
+		localStorage.setItem("story2Page2", story2Page2);
+		localStorage.setItem("story2Page2Malay", story2Page2Malay);
+
+		var page2 = document.getElementById("page2");
+
+		page2.style.textAlign = "justify";
+		
+		var translate = document.getElementById("translate");
+		var saveLanguage = localStorage.getItem("selectedLanguage");
+		var saveFontSize = localStorage.getItem("selectedFontSize");
+
+		var choice = document.getElementById("fontChanger");
+
+		var speech;
+
+		function translator() {
+
+		if (translate.value == "English") {
+
+			page2.innerHTML = localStorage.getItem("story2Page2");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story2Page2");
+			localStorage.setItem("currentStory", speech);
+
+		}
+
+		else if (translate.value == "Malay") {
+
+			page2.innerHTML = localStorage.getItem("story2Page2Malay");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story2Page2Malay");
+			localStorage.setItem("currentStory", speech);
+
+		}
+		
+
+	}
+
+	function save() {
+
+		if (saveLanguage == "English") {
+
+			page2.innerHTML = localStorage.getItem("story2Page2");
+
+		} else if (saveLanguage == "Malay") {
+
+			page2.innerHTML = localStorage.getItem("story2Page2Malay");
+
+		}
+
+		if (saveFontSize == "1") {
+
+			page2.style.fontSize = "1em";
+
+		} else if (saveFontSize == "1.2") {
+
+			page2.style.fontSize = "1.2em";
+
+		} else if (saveFontSize == "1.5") {
+
+			page2.style.fontSize = "1.5em"
+		}
+
+	}
+
+	function sizeChanger() {
+
+		if (choice.value == "1" || choice.value == "0") {
+
+			page2.style.fontSize = "1em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+
+		} else if (choice.value == "1.2") {
+
+			page2.style.fontSize = "1.2em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+
+		} else if (choice.value == "1.5") {
+
+			page2.style.fontSize = "1.5em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+	}
+
+
+	// VOICE 
+
+		var voicelist = document.querySelector('#voicelist');
+		var btnSpeak = document.querySelector('#speak');
+
+		var tts = window.speechSynthesis;
+
+		var voices = [];
+
+		GetVoices();
+
+		if (speechSynthesis !== undefined) {
+
+			speechSynthesis.onvoiceschanged = GetVoices;
+
+		}
+
+		btnSpeak.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("story2page2"));
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			tts.speak(toSpeak);
+		});
+
+		function pause(){
+			tts.pause();
+		}
+
+		function resume(){
+			tts.resume();
+		}
+		function stop(){
+			tts.cancel();
+		}
+
+		function GetVoices(){
+			voices = tts.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+
+	</script>
+
+
+
+</body>
+</html>
