@@ -41,11 +41,12 @@
 	}
 
 	.grid1 {
-		width: 60%;
+		width: 65%;
 		display: grid;
 		grid-template-columns: 30% 30% 30%;
 		margin: 0 auto;
 		border: 1px solid;
+		padding: 10px;
 	}
 
 	/*RATING CSS*/
@@ -62,19 +63,18 @@
 	}
 
 	.btn {
-    /*float: left;*/
-    box-sizing: border-box;
-    margin-left: 30PX;
-    margin-top: 10px;
+		margin: 0 auto;
+		margin-top: 30px;
 	}
 
-	.rate {
+	/*.rate {
 	    float: left;
 	    height: 46px;
 	    padding: 0 10px;
 	    margin: 0 auto;
 	    margin-top: 50px;
-	}
+	}*/
+
 	.rate:not(:checked) > input {
 	    position:absolute;
 	    top:-9999px;
@@ -109,7 +109,7 @@
 	@media screen and (max-width: 479px) {
 
 		.grid1 {
-			visibility: hidden;
+			display: none;
 		}
 
 		#page3 {
@@ -176,7 +176,12 @@
 		</div>
 
 		<div>
-			<h3>Select Voice <select id="voicelist"></select></h3>
+			<div>
+			<h3>Select Voice</h3>
+			<select id="voicelist"></select>
+			</div>
+			<br>
+
 			
 			<div>
 			<button id="speak">Speak</button>
@@ -197,10 +202,8 @@
 		    <label for="star2" title="text">2 stars</label>
 		    <input type="radio" id="star1" name="rate" value="1">
 		    <label for="star1" title="text">1 star</label>
-		    <button>Rate!</button>
+		    <button onclick="rateAlert()" class="btn">Rate!</button>
 		 </div>
-
-		<div id="averageRating"></div>
 
 	</div>
 </div>
@@ -412,7 +415,10 @@
 
         averageRating.innerHTML = "Average rating: " + localStorage.getItem("story2AvgRating");
 
-        alert("You have rate the story.");
+    }
+
+    function rateAlert() {
+    	alert("You have rate the story.");
     }
 
 
