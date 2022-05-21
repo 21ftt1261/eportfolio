@@ -56,30 +56,24 @@
 	}
 
 	.grid2 {
+		width: 40%;
+		border: 1px solid;
 		display: grid;
-		grid-template-columns: 50% 20%;
-		/*border: 1px solid;*/
-		margin-top: 280px;
+		grid-template-columns: 30% 35% 10%;
+		margin-left: 70%;
+		font-size: 1.2em;
 	}
 
-	.btn {
-		margin: 0 auto;
-		margin-top: 30px;
+	.grid2>div:nth-child(3), .grid2>div:nth-child(1) {
+		margin-top: 10px;
+		margin-left: 5px;
 	}
 
-	/*.rate {
-	    float: left;
-	    height: 46px;
-	    padding: 0 10px;
-	    margin: 0 auto;
-	    margin-top: 50px;
-	}*/
-
-	.rate:not(:checked) > input {
-	    position:absolute;
-	    top:-9999px;
+	.rate input {
+   		display: none;
 	}
-	.rate:not(:checked) > label {
+
+	.rate label {
 	    float:right;
 	    width:1em;
 	    overflow:hidden;
@@ -88,6 +82,7 @@
 	    font-size:30px;
 	    color:#ccc;
 	}
+
 	.rate:not(:checked) > label:before {
 	    content: '★ ';
 	}
@@ -98,18 +93,28 @@
 	.rate:not(:checked) > label:hover ~ label {
 	    color: #deb217;  
 	}
-	.rate > input:checked + label:hover,
-	.rate > input:checked + label:hover ~ label,
-	.rate > input:checked ~ label:hover,
-	.rate > input:checked ~ label:hover ~ label,
-	.rate > label:hover ~ input:checked ~ label {
-	    color: #c59b08;
+
+	input:checked ~ label {
+	    color: #deb217;
+	}
+
+	input#star5:checked ~ label {
+	    color: #fd4;
+	    text-shadow: 0 0 20px #952;
 	}
 
 	@media screen and (max-width: 479px) {
 
-		.grid1 {
+		/*.grid1 {
 			display: none;
+		}
+
+		.grid2 {
+			display: none;
+		}*/
+
+		.grid1, .grid2 {
+			visibility: hidden;
 		}
 
 		#page3 {
@@ -154,6 +159,23 @@
 
 	</div>
 
+	<div class="grid2">
+		<div>Rate the story!</div>
+		<div class="rate">
+		    <input type="radio" id="star5" name="rate" value="5">
+		    <label for="star5" title="text">5 stars</label>
+		    <input type="radio" id="star4" name="rate" value="4">
+		    <label for="star4" title="text">4 stars</label>
+		    <input type="radio" id="star3" name="rate" value="3">
+		    <label for="star3" title="text">3 stars</label>
+		    <input type="radio" id="star2" name="rate" value="2">
+		    <label for="star2" title="text">2 stars</label>
+		    <input type="radio" id="star1" name="rate" value="1">
+		    <label for="star1" title="text">1 star</label>
+		 </div>
+		 <button onclick="average()" class="btn">Rate!</button>
+	</div>
+
 	<div class="grid1">
 
 		<div>
@@ -190,20 +212,6 @@
 			<button onclick="stop()">Stop</button>
 			</div>
 		</div>
-
-		<div class="rate" onclick="average()">
-		    <input type="radio" id="star5" name="rate" value="5">
-		    <label for="star5" title="text">5 stars</label>
-		    <input type="radio" id="star4" name="rate" value="4">
-		    <label for="star4" title="text">4 stars</label>
-		    <input type="radio" id="star3" name="rate" value="3">
-		    <label for="star3" title="text">3 stars</label>
-		    <input type="radio" id="star2" name="rate" value="2">
-		    <label for="star2" title="text">2 stars</label>
-		    <input type="radio" id="star1" name="rate" value="1">
-		    <label for="star1" title="text">1 star</label>
-		    <button onclick="rateAlert()" class="btn">Rate!</button>
-		 </div>
 
 	</div>
 </div>
@@ -415,12 +423,9 @@
 
         averageRating.innerHTML = "Average rating: " + localStorage.getItem("story2AvgRating");
 
-    }
+        alert("You have rate the story.");
 
-    function rateAlert() {
-    	alert("You have rate the story.");
     }
-
 
 	</script>
 
