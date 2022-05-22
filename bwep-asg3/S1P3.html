@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story1Page2</title>
+
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+		font-family: Helvetica, sans-serif;
+	}
+
+
+	.grid1 {
+		width: 85%;
+		display: grid;
+		grid-template-columns: 20% 20% 40%;
+		margin: 0 auto;
+		justify-content: center;
+		font-family: 'Amiri', serif;
+		font-size: 20px;
+	}
+
+
+	.grid2 {
+		width: 40%;
+		display: grid;
+		grid-template-columns: 30% 35% 10%;
+		margin-left: 70%;
+		font-family: 'Lobster', cursive;
+		font-size: 1.2em;
+	}
+
+	.grid2>div:nth-child(3), .grid2>div:nth-child(1) {
+
+		margin-top: 10px;
+		margin-left: 5px;
+	}
+
+	#page2 {
+
+		line-height: 30px;
+		
+	}
+
+	.rate input {
+   		display: none;
+	}
+
+	.rate label {
+	    float:right;
+	    width:1em;
+	    overflow:hidden;
+	    white-space:nowrap;
+	    cursor:pointer;
+	    font-size:30px;
+	    color:#ccc;
+	}
+
+	.rate:not(:checked) > label:before {
+	    content: '★ ';
+	}
+	.rate > input:checked ~ label {
+	    color: #ffc700;    
+	}
+	.rate:not(:checked) > label:hover,
+	.rate:not(:checked) > label:hover ~ label {
+	    color: #deb217;  
+	}
+
+	input:checked ~ label {
+	    color: #deb217;
+	}
+
+	input#star5:checked ~ label {
+	    color: #fd4;
+	    text-shadow: 0 0 20px #952;
+	}
+
+
+
+	@media screen and (max-width: 479px) {
+
+		.grid1, .grid2 {
+			visibility: hidden;
+		}
+
+		#page2 {
+
+			line-height: 25px;
+			font-size: 12px;
+		}
+	}
+
+</style>
+
+</head>
+<body onload="save()">
+
+	
+	<div id="page2">
+
+		As Dang Ambun listened to Nakhoda Manis as he ordered his crew to push her little boat away from his vessel, she was amazed at how much he had changed. Even so, she tried to reason with him, “Manis my son, help me, I am your mother.” And as she cried pitifuly, she said, “I have suffered, my son.” “I am helpless. Ah, I am ashamed, mother,” Nakhoda Manis laments silently. “But she is not my mother, my mother is a wealthy woman.” <br>
+		And so he ordered his crew, “Push her boat away, do not let her come near this ship.” As her tiny boat was pushed further away by the crew, Dang Ambun felt an immeasurable sadness and disappointment. Her life felt meaningless for this was not the Nakhoda Manis that she knew. And so Dang Ambun distanced herself from the ship, extremely disappointed that she was not able to be reunited with the son she had been longing for all these years. As Dang Ambun reached the river bank, she saw from a distance Nakhoda Manis standing on his ship, and as she did so, she spoke quietly to herself, “Manis, today you have driven me away from you and you have disowned your own mother.” <br>
+		As soon as Dang Ambun had spoken, the clear blue sky unexpectedly turned cloudy and dark, and a violent storm broke. The rain fell in torrents, accompanied by bolts of lightning and loud outbursts of thunder. Manis’s magnificent ship was tossed and flung about by huge waves.
+		<br> At that moment Nakhoda Manis realized what a grave sin he had just committed against his mother. And at that same instance he realized that he needed his mother’s help. But it was too late. At that very same moment, Dang Ambun was tearfully praying to God to punish her son for his actions. “Mother! Mother! Help me, mother!” With regret in his voice, Nakhoda Manis called to his mother. <br>
+		“You are indeed my mother and I am indeed your son, mother!” Nakhoda Manis called out again to Dang Ambun who was still crying as she watched the magnificent ship being swallowed by the waves. But it was too late. <br>
+		God’s power and will were too great and knew no bounds. When the storm subsided, Nakhoda Manis, his wife and all of his crew had turned into stone. Today, at the edge of Kampung Burong Pingai Ayer, there stands a massive rock in the shape of a ship. It is named Ajong Batu or Jong Batu (meaning “stone ship”). This story teaches a moral lesson about a mother’s love and a child’s ingratitude.
+		
+
+	</div>
+
+	
+	<div class="grid2">
+		<div>Rate the story!</div>
+		<div class="rate">	   
+			<input type="radio" id="star5" name="rate" value="5">
+		    <label for="star5" title="text">5 stars</label>
+		    <input type="radio" id="star4" name="rate" value="4">
+		    <label for="star4" title="text">4 stars</label>
+		    <input type="radio" id="star3" name="rate" value="3">
+		    <label for="star3" title="text">3 stars</label>
+		    <input type="radio" id="star2" name="rate" value="2">
+		    <label for="star2" title="text">2 stars</label>
+		    <input type="radio" id="star1" name="rate" value="1">
+		    <label for="star1" title="text">1 star</label>
+	    </div>
+
+	    <div onclick="calAverage()"><button >Rate!</button></div>
+
+  	</div>
+	
+
+	<div class="grid1">
+		
+		<div>
+			<h3>Select Language</h3>
+			<select id="translate" onchange="translator()">
+				<option value="0">Select</option>
+				<option value="English">English</option>
+				<option value="Malay">Malay</option>
+			</select>
+		</div>
+
+		
+		<div>
+			<h3>Font Size</h3>
+			<select id="fontChanger" onclick="sizeChanger()"> 
+				<option value="0" >Select</option>
+				<option value="1" style="font-size:1em">Small A</option>
+				<option value="1.2" style="font-size:1.2em">Medium A</option>
+				<option value="1.4" style="font-size:1.4em">Big A</option>
+
+			</select>	
+		</div>
+
+		<div><h3>Select Voice <select id="voicelist"></select></h3>
+
+			<div>
+				<button id="read">Read</button>
+				<button onclick="pause()">Pause</button>
+				<button onclick="resume()">Resume</button>
+				<button onclick="stop()">Stop</button>
+				<button id="saveVoice">Save Voice</button>
+				<button id="resetVoice">Reset Voice</button>
+			</div>
+		
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		var story1Page2 = "As Dang Ambun listened to Nakhoda Manis as he ordered his crew to push her little boat away from his vessel, she was amazed at how much he had changed. Even so, she tried to reason with him, “Manis my son, help me, I am your mother.” And as she cried pitifuly, she said, “I have suffered, my son.” “I am helpless. Ah, I am ashamed, mother,” Nakhoda Manis laments silently. “But she is not my mother, my mother is a wealthy woman.” And so he ordered his crew, “Push her boat away, do not let her come near this ship.” As her tiny boat was pushed further away by the crew, Dang Ambun felt an immeasurable sadness and disappointment. Her life felt meaningless for this was not the Nakhoda Manis that she knew. And so Dang Ambun distanced herself from the ship, extremely disappointed that she was not able to be reunited with the son she had been longing for all these years. As Dang Ambun reached the river bank, she saw from a distance Nakhoda Manis standing on his ship, and as she did so, she spoke quietly to herself, “Manis, today you have driven me away from you and you have disowned your own mother.” As soon as Dang Ambun had spoken, the clear blue sky unexpectedly turned cloudy and dark, and a violent storm broke. The rain fell in torrents, accompanied by bolts of lightning and loud outbursts of thunder. Manis’s magnificent ship was tossed and flung about by huge waves. At that moment Nakhoda Manis realized what a grave sin he had just committed against his mother. And at that same instance he realized that he needed his mother’s help. But it was too late. At that very same moment, Dang Ambun was tearfully praying to God to punish her son for his actions. “Mother! Mother! Help me, mother!” With regret in his voice, Nakhoda Manis called to his mother. “You are indeed my mother and I am indeed your son, mother!” Nakhoda Manis called out again to Dang Ambun who was still crying as she watched the magnificent ship being swallowed by the waves. But it was too late. God’s power and will were too great and knew no bounds. When the storm subsided, Nakhoda Manis, his wife and all of his crew had turned into stone. Today, at the edge of Kampung Burong Pingai Ayer, there stands a massive rock in the shape of a ship. It is named Ajong Batu or Jong Batu (meaning “stone ship”). This story teaches a moral lesson about a mother’s love and a child’s ingratitude."
+
+
+
+		var story1Page2Malay = "Ketika Dang Ambun mendengar Nakhoda Manis ketika dia memerintahkan krunya untuk menolak bot kecilnya dari kapalnya, dia kagum dengan berapa banyak yang telah berubah. Walaupun begitu, dia cuba membuat alasan dengannya, “Manis anak saya, bantu saya, saya ibu anda.” Dan ketika dia menangis menyedihkan, dia berkata, “Saya telah menderita, anak saya.” “Saya tidak berdaya. Ah, saya malu, ibu,” Nakhoda Manis meratap dengan senyap. “Tetapi dia bukan ibu saya, ibu saya adalah seorang wanita kaya.” Dan dia memerintahkan krunya, “Push perahunya pergi, jangan biarkan dia datang dekat kapal ini.” Ketika perahu kecilnya ditolak lebih jauh oleh kru, Dang Ambun merasakan kesedihan dan kekecewaan yang tak terkira. Kehidupannya terasa tidak bermakna kerana ini bukan Nakhoda Manis yang dia tahu. Dan jadi Dang Ambun menjauhkan dirinya dari kapal, sangat kecewa bahwa ia tidak dapat dipersatukan kembali dengan anak yang telah dia rindukan selama bertahun-tahun. Ketika Dang Ambun sampai ke tebing sungai, dia melihat dari jauh Nakhoda Manis berdiri di atas kapalnya, dan ketika dia melakukannya, dia bercakap dengan tenang kepada dirinya sendiri, “Manis, hari ini anda telah mengusir saya dari anda dan anda telah menafikan ibu anda sendiri.” As soon as Dang Ambun had spoken, the clear blue sky unexpectedly turned cloudy and dark, and a violent storm broke. The rain fell in torrents, accompanied by bolts of lightning and loud outbursts of thunder. Manis’s magnificent ship was tossed and flung about by huge waves. At that moment Nakhoda Manis realized what a grave sin he had just committed against his mother. Dan pada masa yang sama dia menyedari bahawa dia memerlukan bantuan ibunya. Tapi sudah terlambat. Pada masa yang sama, Dang Ambun menangis berdoa kepada Tuhan untuk menghukum anaknya atas tindakannya. “Ibu! Ibu! Tolong saya, ibu!” Dengan penyesalan dalam suaranya, Nakhoda Manis memanggil ibunya. “Kamu memang ibuku dan aku memang anakmu, ibu!” Nakhoda Manis memanggil sekali lagi kepada Dang Ambun yang masih menangis sambil melihat kapal yang megah itu ditelan ombak. Tapi sudah terlambat. Kuasa dan kehendak Tuhan terlalu besar dan tidak mengenal batas. Ketika badai reda, Nakhoda Manis, istrinya dan semua krunya telah berubah menjadi batu. Hari ini, di pinggir Kampung Burong Pingai Ayer, terdapat batu besar berbentuk sebuah kapal. Ia dinamakan Ajong Batu atau Jong Batu (bermaksud “kapal batu”). Kisah ini mengajar pelajaran moral tentang cinta seorang ibu dan rasa tidak puas hati seorang anak."
+
+
+		localStorage.setItem("story1Page2", story1Page2);
+		localStorage.setItem("story1Page2Malay", story1Page2Malay);
+
+		var page2 = document.getElementById("page2");
+
+		page2.style.textAlign = "justify";
+
+		var translate = document.getElementById("translate");
+		var saveLanguage = localStorage.getItem("selectedLanguage");
+		var saveFontSize = localStorage.getItem("selectedFontSize"); 
+
+		var choice = document.getElementById("fontChanger");
+
+		var speech;
+
+		var inputVoice = document.getElementById('voicelist');
+    	var saveVoices = document.getElementById('saveVoice');
+    	var resetVoices = document.getElementById('resetVoice');
+
+
+		function translator() {
+		
+			if (translate.value == "English") {
+
+				page2.innerHTML = localStorage.getItem("story1Page2");	
+	 
+				saveLanguage = translate.value;
+				localStorage.setItem("selectedLanguage", saveLanguage);
+
+				speech = localStorage.getItem("story1Page2")
+				localStorage.setItem("currentStory", speech);	
+
+			}
+
+			else if (translate.value == "Malay") {
+
+				page2.innerHTML = localStorage.getItem("story1Page2Malay");
+
+				saveLanguage = translate.value;
+				localStorage.setItem("selectedLanguage", saveLanguage);
+
+				speech = localStorage.getItem("story1Page2Malay")
+				localStorage.setItem("currentStory", speech);
+			}
+		
+		}
+
+		function save() {
+
+			if (saveLanguage == "English") {
+
+				page2.innerHTML = localStorage.getItem("story1Page2");
+
+			}
+
+			else if (saveLanguage == "Malay") {
+
+				page2.innerHTML = localStorage.getItem("story1Page2Malay");
+			}
+
+			if (saveFontSize == "1") {
+
+				page2.style.fontSize = "1em";
+
+			}
+
+			else if (saveFontSize == "1.2") {
+
+				page2.style.fontSize = "1.2em";
+			}
+
+			else if (saveFontSize == "1.4") {
+
+				page2.style.fontSize = "1.4em";
+			}
+
+			if (localStorage['voicelist']) {
+	        inputVoice.value = localStorage['voicelist'];
+		    }
+
+		    saveVoices.onclick = function(){
+		        localStorage['voicelist'] = inputVoice.value;
+		    }
+
+		    resetVoices.onclick = function(){
+		        voicelist.selectedIndex = 0;
+		        var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
+		        localStorage['voicelist'] = defaultVoice;
+		    }
+		}
+
+		function sizeChanger() {
+
+			if (choice.value == "1" || choice.value == "0" ) {
+				page2.style.fontSize = "1em";
+				saveFontSize = choice.value;
+				localStorage.setItem("selectedFontSize", saveFontSize);
+			}
+
+			else if (choice.value == "1.2") {
+				page2.style.fontSize = "1.2em";
+				saveFontSize = choice.value;
+				localStorage.setItem("selectedFontSize", saveFontSize);
+			}
+
+			else if (choice.value == "1.4") {
+				page2.style.fontSize = "1.4em";
+				saveFontSize = choice.value;
+				localStorage.setItem("selectedFontSize", saveFontSize);
+			}
+		}
+
+
+		// VOICE 
+		var voicelist = document.querySelector('#voicelist');
+		var btnRead = document.querySelector('#read');
+
+		var winSyn = window.speechSynthesis;
+
+		var voices = [];
+
+		GetVoices();
+
+		if (speechSynthesis !== undefined) {
+
+			speechSynthesis.onvoiceschanged = GetVoices;
+
+		}
+
+		btnRead.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("currentStory"));
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			winSyn.speak(toSpeak);
+		});
+
+		function pause(){
+			winSyn.pause();
+		}
+
+		function resume(){
+			winSyn.resume();
+		}
+		function stop(){
+			winSyn.cancel();
+		}
+
+		function GetVoices(){
+			voices = winSyn.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+		var star5 = document.getElementById("star5");
+        var star4 = document.getElementById("star4");
+        var star3 = document.getElementById("star3");
+        var star2 = document.getElementById("star2");
+        var star1 = document.getElementById("star1");
+        var rate = 0;
+        var total = 0;
+        var average = document.getElementById("averageRating");
+        var avgRate = 0;
+
+        var next5 = document.getElementById("next5");
+        var next4 = document.getElementById("next4");
+        var next3 = document.getElementById("next3");
+        var next2 = document.getElementById("next2");
+        var next1 = document.getElementById("next1");
+        var avg = localStorage.getItem("rate");
+    
+	    function calAverage() {
+
+	        if (star5.checked) {
+	            rate = 5;
+	            total = 1;
+	        }
+	        if (star4.checked) {
+	            rate = 4;
+	            total = 1;
+	        }
+	        if (star3.checked) {
+	            rate = 3;
+	            total = 1;
+	        }
+	        if (star2.checked) {
+	            rate = 2;
+	            total = 1;
+	        }
+	        if (star1.checked) {
+	            rate = 1;
+	            total = 1;
+	        }
+
+	        var storeRate = localStorage.getItem("story1Rating");
+	        var storeTotal = localStorage.getItem("story1Total");
+
+	        rate += Number(storeRate);
+	        total += Number(storeTotal);
+	        avgRate = rate / total;
+
+	        var rounded = Math.round(avgRate * 10) / 10; 
+
+	        localStorage.setItem("story1Rating", rate);
+	        localStorage.setItem("story1Total", total);
+	        localStorage.setItem("story1AvgRating" ,avgRate);  
+
+	        alert("You have rate the story.");
+
+	    }
+
+	</script>
+
+</body>
+</html>

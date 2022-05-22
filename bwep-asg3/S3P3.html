@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story1Page2</title>
+
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+	
+	input {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+		font-family: Helvetica, sans-serif;
+	}
+
+
+	.grid1 {
+		width: 85%;
+		display: grid;
+		grid-template-columns: 20% 20% 40%;
+		margin: 0 auto;
+		justify-content: center;
+		font-family: 'Amiri', serif;
+		font-size: 20px;
+	}
+
+	.grid2 {
+		width: 40%;
+		display: grid;
+		grid-template-columns: 30% 35% 10%;
+		margin-left: 70%;
+		font-family: 'Lobster', cursive;
+		font-size: 1.2em;
+	}
+
+	.grid2>div:nth-child(3), .grid2>div:nth-child(1) {
+
+		margin-top: 10px;
+		margin-left: 5px;
+	}
+
+	#page2 {
+
+		line-height: 30px;
+		font-family: 'Roboto Slab', serif;
+	}
+
+	.rate input {
+   		display: none;
+	}
+
+	.rate label {
+	    float:right;
+	    width:1em;
+	    overflow:hidden;
+	    white-space:nowrap;
+	    cursor:pointer;
+	    font-size:30px;
+	    color:#ccc;
+	}
+
+	.rate:not(:checked) > label:before {
+	    content: '★ ';
+	}
+	.rate > input:checked ~ label {
+	    color: #ffc700;    
+	}
+	.rate:not(:checked) > label:hover,
+	.rate:not(:checked) > label:hover ~ label {
+	    color: #deb217;  
+	}
+
+	input:checked ~ label {
+	    color: #deb217;
+	}
+
+	input#star5:checked ~ label {
+	    color: #fd4;
+	    text-shadow: 0 0 20px #952;
+	}
+
+
+
+	@media screen and (max-width: 479px) {
+
+		.grid1, .grid2 {
+			visibility: hidden;
+		}
+
+		#page2 {
+
+			line-height: 25px;
+			font-size: 12px;
+		}
+	}
+
+</style>
+
+</head>
+<body onload="save()">
+	
+	<div id="page2">
+
+		It is said that long, long ago, a prince in Palembang called Sang Nila Utama was bored. He decided to go hunting with his men. In the woods they saw a deer, but as he tried to shoot, it moved swiftly. The prince and his men followed, trying to catch it.The deer disappeared, but from the hill where it had led them, the prince had a good view of the surrounding islands.Looking out into the distance, Sang Nila Utama saw an island that he had not seen before. It had sands that shimmered white on the beach. “What is that island?” he asked his men. “Temasek,” they answered. “Let us go there!” said the prince. As they sailed towards Temasek however, a storm arose. The wind blew hard and the waves rose higher and higher.The boat was battered and in danger of capsizing. To lighten the load and help keep it afloat, Sang Nila Utama’s men began throwing overboard the cargo they carried. But still the storm grew fiercer. They tried throwing everything that they could possibly manage without. They knew their lives were more important. However, the boat continued to sink.One of his trusted advisors said to Sang Nila Utama, “Throw your crown overboard!It is the heaviest thing left on board.” Perhaps the advisor had remembered an old story that said that Sang Nila Utama was one of the descendants of the Sea King’s daughter. When Sang Nila Utama and his men landed on the shores of Temasek, he caught sight of another animal, one that he had never seen before. It was magnificent with a black head, a white neck, and a red body. It looked deep into the prince’s eyes. Then it disappeared from view.<br><br>“What is that animal?” he asked his men. No one really knew, but one of the ministers said, “I have heard that there is an animal that looks magnificent and regal like that. They call it singa or lion.Sang Nila Utama liked what he saw of the island.It was time he had his own place to rule and he thought the sighting of the singa was an auspicious sign. “This is where I shall live,” he said. “We shall call this place ‘Singapura'
+		
+
+	</div>
+
+	
+	<div class="grid2">
+		<div>Rate the story!</div>
+		<div class="rate">	   
+			<input type="radio" id="star5" name="rate" value="5">
+		    <label for="star5" title="text">5 stars</label>
+		    <input type="radio" id="star4" name="rate" value="4">
+		    <label for="star4" title="text">4 stars</label>
+		    <input type="radio" id="star3" name="rate" value="3">
+		    <label for="star3" title="text">3 stars</label>
+		    <input type="radio" id="star2" name="rate" value="2">
+		    <label for="star2" title="text">2 stars</label>
+		    <input type="radio" id="star1" name="rate" value="1">
+		    <label for="star1" title="text">1 star</label>
+	    </div>
+
+	    <div onclick="calAverage()"><button >Rate!</button></div>
+
+  	</div>
+	
+
+	<div class="grid1">
+		
+		<div>
+			<h3>Select Language</h3>
+			<select id="translate" onchange="translator()">
+				<option value="0">Select</option>
+				<option value="English">English</option>
+				<option value="Malay">Malay</option>
+			</select>
+		</div>
+
+		
+		<div>
+			<h3>Font Size</h3>
+			<select id="fontChanger" onclick="sizeChanger()"> 
+				<option value="0" >Select</option>
+				<option value="1" style="font-size:1em">Small A</option>
+				<option value="1.2" style="font-size:1.2em">Medium A</option>
+				<option value="1.4" style="font-size:1.4em">Big A</option>
+
+			</select>	
+		</div>
+
+		<div><h3>Select Voice <select id="voicelist"></select></h3>
+
+			<div>
+				<button id="read">Read</button>
+				<button onclick="pause()">Pause</button>
+				<button onclick="resume()">Resume</button>
+				<button onclick="stop()">Stop</button>
+				<button id="saveVoice">Save Voice</button>
+				<button id="resetVoice">Reset Voice</button>
+			</div>
+		
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+
+		var story3Page2 = "It is said that long, long ago, a prince in Palembang called Sang Nila Utama was bored. He decided to go hunting with his men. In the woods they saw a deer, but as he tried to shoot, it moved swiftly. The prince and his men followed, trying to catch it.The deer disappeared, but from the hill where it had led them, the prince had a good view of the surrounding islands.Looking out into the distance, Sang Nila Utama saw an island that he had not seen before. It had sands that shimmered white on the beach. “What is that island?” he asked his men. “Temasek,” they answered. “Let us go there!” said the prince. As they sailed towards Temasek however, a storm arose. The wind blew hard and the waves rose higher and higher.The boat was battered and in danger of capsizing. To lighten the load and help keep it afloat, Sang Nila Utama’s men began throwing overboard the cargo they carried. But still the storm grew fiercer. They tried throwing everything that they could possibly manage without. They knew their lives were more important. However, the boat continued to sink.One of his trusted advisors said to Sang Nila Utama, “Throw your crown overboard!It is the heaviest thing left on board.” Perhaps the advisor had remembered an old story that said that Sang Nila Utama was one of the descendants of the Sea King’s daughter. When Sang Nila Utama and his men landed on the shores of Temasek, he caught sight of another animal, one that he had never seen before. It was magnificent with a black head, a white neck, and a red body. It looked deep into the prince’s eyes. Then it disappeared from view.<br><br>“What is that animal?” he asked his men. No one really knew, but one of the ministers said, “I have heard that there is an animal that looks magnificent and regal like that. They call it singa or lion.Sang Nila Utama liked what he saw of the island.It was time he had his own place to rule and he thought the sighting of the singa was an auspicious sign. “This is where I shall live,” he said. “We shall call this place ‘Singapura'";
+
+
+
+		var story3Page2Malay = "Kononnya sejak dahulu kala, seorang putera raja di Palembang bernama Sang Nila Utama bosan. Dia memutuskan untuk pergi memburu bersama anak buahnya. Di dalam hutan mereka melihat seekor rusa, tetapi ketika dia cuba menembak, ia bergerak dengan pantas. Putera raja dan orang-orangnya mengikuti, cuba menangkapnya. Rusa itu hilang, tetapi dari bukit tempat ia membawa mereka, putera raja dapat melihat pulau-pulau di sekelilingnya dengan baik.Melihat ke jauh, Sang Nila Utama melihat sebuah pulau yang dia tidak pernah melihat sebelum ini. Ia mempunyai pasir yang berkilauan putih di pantai. “Pulau apakah itu?” dia bertanya kepada anak buahnya.Walau bagaimanapun, semasa mereka belayar menuju Temasek, ribut timbul. Angin bertiup kencang dan ombak semakin tinggi. Bot itu dipukul dan dalam bahaya terbalik. Untuk meringankan beban dan membantu mengekalkannya, orang-orang Sang Nila Utama mula membuang kargo yang mereka bawa ke laut.Tetapi masih ribut semakin ganas. Mereka cuba membuang segala-galanya yang mungkin mereka boleh uruskan tanpanya. Mereka tahu nyawa mereka lebih penting. Namun, perahu itu terus karam. Salah seorang penasihatnya yang dipercayai berkata kepada Sang Nila Utama,“Lemparkan mahkotamu ke laut!. Apabila Sang Nila Utama dan orang-orangnya mendarat di pantai Temasek, dia ternampak seekor binatang lain, yang tidak pernah dilihatnya sebelum ini. Ia sangat mengagumkan dengan kepala hitam, leher putih, dan badan merah. Ia memandang jauh ke dalam mata putera raja.<br><br> Kemudian ia hilang dari pandangan.“Haiwan apakah itu?” dia bertanya kepada anak buahnya. Tiada siapa yang benar-benar tahu, tetapi salah seorang menteri berkata, “Saya telah mendengar bahawa ada haiwan yang kelihatan hebat dan agung seperti itu. Mereka memanggilnya singa atau singa.Sang Nila Utama menyukai apa yang dilihatnya tentang pulau itu.Sudah tiba masanya dia mempunyai tempat sendiri untuk memerintah dan dia fikir melihat singa itu adalah satu petanda yang baik.Di sinilah saya akan tinggal. katanya.";
+
+
+		localStorage.setItem("story3Page2", story3Page2);
+		localStorage.setItem("story3Page2Malay", story3Page2Malay);
+
+		var page2 = document.getElementById("page2");
+
+		page2.style.textAlign = "justify";
+
+		var translate = document.getElementById("translate");
+		var saveLanguage = localStorage.getItem("selectedLanguage");
+		var saveFontSize = localStorage.getItem("selectedFontSize"); 
+
+		var choice = document.getElementById("fontChanger");
+
+		var speech;
+
+		var inputVoice = document.getElementById('voicelist');
+    var saveVoices = document.getElementById('saveVoice');
+    var resetVoices = document.getElementById('resetVoice');
+
+
+		function translator() {
+		
+		if (translate.value == "English") {
+
+			page2.innerHTML = localStorage.getItem("story3Page2");	
+ 
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story3Page2")
+			localStorage.setItem("currentStory", speech);	
+
+		}
+
+		else if (translate.value == "Malay") {
+
+			page2.innerHTML = localStorage.getItem("story3Page2Malay");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story3Page2Malay")
+			localStorage.setItem("currentStory", speech);
+		}
+		
+	}
+
+	function save() {
+
+		if (saveLanguage == "English") {
+
+			page2.innerHTML = localStorage.getItem("story3Page2");
+
+		}
+
+		else if (saveLanguage == "Malay") {
+
+			page2.innerHTML = localStorage.getItem("story3Page2Malay");
+		}
+
+		if (saveFontSize == "1") {
+
+			page2.style.fontSize = "1em";
+
+		}
+
+		else if (saveFontSize == "1.2") {
+
+			page2.style.fontSize = "1.2em";
+		}
+
+		else if (saveFontSize == "1.4") {
+
+			page2.style.fontSize = "1.4em";
+		}
+
+		if (localStorage['voicelist']) {
+        inputVoice.value = localStorage['voicelist'];
+	    }
+
+	    saveVoices.onclick = function(){
+	        localStorage['voicelist'] = inputVoice.value;
+	    }
+
+	    resetVoices.onclick = function(){
+	        voicelist.selectedIndex = 0;
+	        var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
+	        localStorage['voicelist'] = defaultVoice;
+	    }
+	}
+
+	function sizeChanger() {
+
+		if (choice.value == "1" || choice.value == "0" ) {
+			page2.style.fontSize = "1em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+		else if (choice.value == "1.2") {
+			page2.style.fontSize = "1.2em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+		else if (choice.value == "1.4") {
+			page2.style.fontSize = "1.4em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+	}
+
+
+	// VOICE 
+
+		var voicelist = document.querySelector('#voicelist');
+		var btnRead = document.querySelector('#read');
+
+		var winSyn = window.speechSynthesis;
+
+		var voices = [];
+
+		GetVoices();
+
+		if (speechSynthesis !== undefined) {
+
+			speechSynthesis.onvoiceschanged = GetVoices;
+
+		}
+
+		btnRead.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("currentStory"));
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			winSyn.speak(toSpeak);
+		});
+
+		function pause(){
+			winSyn.pause();
+		}
+
+		function resume(){
+			winSyn.resume();
+		}
+		function stop(){
+			winSyn.cancel();
+		}
+
+		function GetVoices(){
+			voices = winSyn.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+		var star5 = document.getElementById("star5");
+        var star4 = document.getElementById("star4");
+        var star3 = document.getElementById("star3");
+        var star2 = document.getElementById("star2");
+        var star1 = document.getElementById("star1");
+        var rate = 0;
+        var total = 0;
+        var average = document.getElementById("averageRating");
+        var avgRate = 0;
+
+        var next5 = document.getElementById("next5");
+        var next4 = document.getElementById("next4");
+        var next3 = document.getElementById("next3");
+        var next2 = document.getElementById("next2");
+        var next1 = document.getElementById("next1");
+        var avg = localStorage.getItem("rate");
+    
+    function calAverage() {
+
+        if (star5.checked) {
+            rate = 5;
+            total = 1;
+        }
+        if (star4.checked) {
+            rate = 4;
+            total = 1;
+        }
+        if (star3.checked) {
+            rate = 3;
+            total = 1;
+        }
+        if (star2.checked) {
+            rate = 2;
+            total = 1;
+        }
+        if (star1.checked) {
+            rate = 1;
+            total = 1;
+        }
+
+        var storeRate = localStorage.getItem("story3Rating");
+        var storeTotal = localStorage.getItem("story3Total");
+
+        rate += Number(storeRate);
+        total += Number(storeTotal);
+        avgRate = rate / total;
+
+        var rounded = Math.round(avgRate * 10) / 10; 
+
+        localStorage.setItem("story3Rating", rate);
+        localStorage.setItem("story3Total", total);
+        localStorage.setItem("story3AvgRating" ,avgRate);  
+
+        alert("You have rate the story.");
+
+    }
+
+	</script>
+
+
+
+</body>
+</html>

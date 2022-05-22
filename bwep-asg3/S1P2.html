@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Story1Page1</title>
+
+
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+	input {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+		
+	}
+
+
+	.grid1 {
+		width: 85%;
+		display: grid;
+		grid-template-columns:  20% 20% 40%;
+		margin: 0 auto;
+		justify-content: center;
+		font-family: 'Amiri', serif;
+		font-size: 20px;
+		
+	}
+
+	#page1 {
+
+		line-height: 30px;
+		
+	}
+
+
+	.brightness-box{
+	  width: 10px;
+	  height: 10px;
+	  background: #f9f9f9;
+	  border-radius: 8px;
+	  padding: 0 20px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-between;
+	  text-align: center;
+	}
+
+
+	@media screen and (max-width: 479px) {
+
+		.grid1 {
+			visibility: hidden;
+		}
+
+		#page1 {
+
+			line-height: 25px;
+			font-size: 12px;
+		}
+
+	}
+	
+
+</style>
+
+</head>
+<body onload="save()">
+
+
+	<h2>NAHKODA MANIS</h2>
+	
+	<div id="page1">
+		During the time of Sultan Bolkiah, also known as Nakhoda Ragam, the fifth Sultan of Brunei, there lived a young man named Manis. Manis’s mother, Dang Ambun, was a very wealthy widow. Manis’s father had died while he was still a little boy, leaving all his riches to his wife Dang Ambun who promised to pass down their great wealth to Manis when he became a young man. <br> 
+		Manis’s father had left Dang Ambun a house as huge and beautiful as a palace, numerous shop-houses and dozens of ships. After her husband’s death, Dang Ambun devoted her whole attention and her love to her son Manis, the only child in this aristocratic family. From an early age, Dang Ambun sent Manis to study about religion from a pious man who also taught the children of other nobles. <br>
+		When Manis became a young man, Dang Ambun started to think about her son’s future. “All my wealth will become yours, Manis,” Dang Ambun said to herself. “You will surely have a happy and easy life with all this wealth and you will be able to find a beautiful and faithful wife.” Dang Ambun then started to day-dream about a life partner for Manis, and about marrying him off to a good-looking and kind-hearted girl. <br>
+		“I will find a special girl for Manis. You won’t need to work, Manis, as our vast wealth will guarantee a very comfortable life for you and your future generations,” Dang Ambun promised in her heart of hearts. Manis, however, had his own plans for his future and his plans were nothing like what his mother had dreamed about. In fact, Manis’s plans did not include his great wealth, nor a wife, not even his noble birthright.<br>
+		For Manis had his own ambition, an ambition that his mother knew nothing about. Many young men at that time were fond of travelling to other landsand these men brought back with them exciting tales of their journeys and adventures which Manis and his friends loved listening to. <br>
+		These stories helped to develop a keen spirit of adventure in Manis and his aristocratic friends, and fuelled Manis’s ambition to follow in the footsteps of his well-travelled countrymen in search of exciting experiences. He would gain nothing by staying on in Brunei and he felt that, like the other young men, he was old enough to venture forth. <br>
+		“I too wish to seek experience and I wish to travel,” Manis said to himself as he was returning home from his friends’ house. “Mother told me that Father used to be a traveller too and his blood runs in me,” he said. “I am a grown man now, mother,” said Manis. Dang Ambun smiled upon hearing that. She was happy because her son was indeed a grown man. “I want to be of service to our country, mother,” said Manis again.<br>
+		“Allow me to travel with my friends.” Dang Ambun was amazed when she heard Manis’ words and she asked sadly, “Oh Manis, where will you travel to?”Truly, Dang Ambun was not prepared for this. <br>
+		“We are living a life of luxury here in Brunei. How could you even think about leaving your mother here all on my own,” Dang Ambun continued. “I have made my decision, mother,” Manis said. “Besides, I won’t be gone for too long.” “Where will you travel to, my son?” Dang Ambun asked once again. “To foreign lands. Worry not, mother, for I will not forget you. I will be travelling with the young men of Brunei who are skilled sea-men,” Manis comforted his mother.
+		
+	</div>
+
+	<div class="grid1">
+		
+		<div>
+		<h3 >Select Language</h3>
+		<select id="translate" onchange="translator()">
+			<option value="0">Select</option>
+			<option value="English">English</option>
+			<option value="Malay">Malay</option>
+		</select>
+		</div>
+
+		
+	<div>
+		<h3>Font Size</h3>
+		<select id="fontChanger" onclick="sizeChanger()"> 
+			<option value="0" >Select</option>
+			<option value="1" style="font-size:1em">Small A</option>
+			<option value="1.2" style="font-size:1.2em">Medium A</option>
+			<option value="1.4" style="font-size:1.4em">Big A</option>
+
+		</select>	
+	</div>
+
+	<div><h3>Select Voice <select id="voicelist"></select></h3>
+
+		<div>
+			<button id="read">Read</button>
+			<button onclick="pause()">Pause</button>
+			<button onclick="resume()">Resume</button>
+			<button onclick="stop()">Stop</button>
+			<button id="saveVoice">Save Voice</button>
+			<button id="resetVoice">Reset Voice</button>
+		</div>
+	
+	</div>	
+
+</div>
+
+	<script type="text/javascript">
+
+		var story1Page1 = "During the time of Sultan Bolkiah, also known as Nakhoda Ragam, the fifth Sultan of Brunei, there lived a young man named Manis. Manis’s mother, Dang Ambun, was a very wealthy widow. Manis’s father had died while he was still a little boy, leaving all his riches to his wife Dang Ambun who promised to pass down their great wealth to Manis when he became a young man. Manis’s father had left Dang Ambun a house as huge and beautiful as a palace, numerous shop-houses and dozens of ships. After her husband’s death, Dang Ambun devoted her whole attention and her love to her son Manis, the only child in this aristocratic family. From an early age, Dang Ambun sent Manis to study about religion from a pious man who also taught the children of other nobles. When Manis became a young man, Dang Ambun started to think about her son’s future. “All my wealth will become yours, Manis,” Dang Ambun said to herself. “You will surely have a happy and easy life with all this wealth and you will be able to find a beautiful and faithful wife.” Dang Ambun then started to day-dream about a life partner for Manis, and about marrying him off to a good-looking and kind-hearted girl. “I will find a special girl for Manis. You won’t need to work, Manis, as our vast wealth will guarantee a very comfortable life for you and your future generations,” Dang Ambun promised in her heart of hearts. Manis, however, had his own plans for his future and his plans were nothing like what his mother had dreamed about. In fact, Manis’s plans did not include his great wealth, nor a wife, not even his noble birthright. For Manis had his own ambition, an ambition that his mother knew nothing about. Many young men at that time were fond of travelling to other lands and these men brought back with them exciting tales of their journeys and adventures which Manis and his friends loved listening to. These stories helped to develop a keen spirit of adventure in Manis and his aristocratic friends, and fuelled Manis’s ambition to follow in the footsteps of his well-travelled countrymen in search of exciting experiences. He would gain nothing by staying on in Brunei and he felt that, like the other young men, he was old enough to venture forth. “I too wish to seek experience and I wish to travel,” Manis said to himself as he was returning home from his friends’ house. “Mother told me that Father used to be a traveller too and his blood runs in me,” he said. “I am a grown man now, mother,” said Manis. Dang Ambun smiled upon hearing that. She was happy because her son was indeed a grown man. “I want to be of service to our country, mother,” said Manis again. “Allow me to travel with my friends.” Dang Ambun was amazed when she heard Manis’ words and she asked sadly, “Oh Manis, where will you travel to?” Truly, Dang Ambun was not prepared for this. “We are living a life of luxury here in Brunei. How could you even think about leaving your mother here all on my own,” Dang Ambun continued. “I have made my decision, mother,” Manis said. “Besides, I won’t be gone for too long.” “Where will you travel to, my son?” Dang Ambun asked once again. “To foreign lands. Worry not, mother, for I will not forget you. I will be travelling with the young men of Brunei who are skilled sea-men,” Manis comforted his mother."
+
+
+
+		var story1Page1Malay = "Semasa zaman Sultan Bolkiah, juga dikenali sebagai Nakhoda Ragam, Sultan Brunei kelima, terdapat seorang pemuda bernama Manis. Ibu Manis, Dang Ambun, adalah seorang janda yang sangat kaya. Bapa Manis telah meninggal dunia semasa dia masih kecil, meninggalkan semua kekayaannya kepada isterinya Dang Ambun yang berjanji untuk menyerahkan kekayaan besar mereka kepada Manis ketika dia menjadi seorang lelaki muda. Bapa Manis telah meninggalkan Dang Ambun sebuah rumah yang besar dan indah seperti istana, banyak rumah kedai dan berpuluh-puluh kapal. Selepas kematian suaminya, Dang Ambun menumpukan seluruh perhatiannya dan cintanya kepada anaknya Manis, satu-satunya anak dalam keluarga bangsawan ini. Sejak kecil, Dang Ambun menghantar Manis untuk belajar tentang agama daripada seorang lelaki yang saleh yang juga mengajar anak-anak bangsawan lain. Apabila Manis menjadi seorang lelaki muda, Dang Ambun mula memikirkan masa depan anaknya. “Semua kekayaan saya akan menjadi milik anda, Manis,” kata Dang Ambun kepada dirinya sendiri. “Anda pasti akan mempunyai kehidupan yang bahagia dan mudah dengan semua kekayaan ini dan anda akan dapat mencari isteri yang cantik dan setia.” Dang Ambun kemudian mula bermimpi tentang pasangan hidup untuk Manis, dan tentang berkahwin dengannya dengan seorang gadis yang tampan dan baik hati. “Aku akan menemukan seorang gadis istimewa untuk Manis. Anda tidak perlu bekerja, Manis, kerana kekayaan kami yang luas akan menjamin kehidupan yang sangat selesa untuk anda dan generasi masa depan anda,” kata Dang Ambun di hatinya. Manis, bagaimanapun, mempunyai rancangan sendiri untuk masa depannya dan rancangannya tidak seperti apa yang diimpikan oleh ibunya. Malah, rancangan Manis tidak termasuk kekayaannya yang besar, mahupun seorang isteri, bahkan hak kelahirannya yang mulia. Kerana Manis mempunyai cita-citanya sendiri, cita-cita yang ibunya tidak tahu apa-apa. Ramai lelaki muda pada masa itu gemar melancong ke tanah lain dan orang-orang ini membawa kembali kisah-kisah menarik tentang perjalanan dan pengembaraan mereka yang Manis dan rakan-rakannya suka mendengar. Kisah-kisah ini membantu mengembangkan semangat pengembaraan yang tajam di Manis dan rakan-rakan bangsawannya, dan mendorong cita-cita Manis untuk mengikuti jejak langkah rakan senegaranya yang mengembara dengan baik untuk mencari pengalaman yang menarik. Dia tidak akan mendapat apa-apa dengan tinggal di Brunei dan dia merasakan bahawa, seperti lelaki muda lain, dia cukup tua untuk menceburkan diri. “Saya juga ingin mencari pengalaman dan saya ingin melancong,” kata Manis kepada dirinya sendiri ketika dia pulang dari rumah rakan-rakannya. “Ibu memberitahu saya bahawa Ayah pernah menjadi pengembara juga dan darahnya mengalir dalam diri saya,” katanya. “Saya seorang lelaki dewasa sekarang, ibu,” kata Manis. Dang Ambun tersenyum ketika mendengar itu. Dia gembira kerana anaknya memang seorang lelaki dewasa. “Saya mahu berkhidmat kepada negara kita, ibu,” kata Manis lagi."
+
+
+		localStorage.setItem("story1Page1", story1Page1);
+		localStorage.setItem("story1Page1Malay", story1Page1Malay);
+
+		var page1 = document.getElementById("page1");
+
+		page1.style.textAlign = "justify";
+
+		var translate = document.getElementById("translate");
+		var saveLanguage = localStorage.getItem("selectedLanguage");
+		var saveFontSize = localStorage.getItem("selectedFontSize"); 
+
+		var choice = document.getElementById("fontChanger");
+
+		var speech;
+
+		var inputVoice = document.getElementById('voicelist');
+    var saveVoices = document.getElementById('saveVoice');
+    var resetVoices = document.getElementById('resetVoice');
+
+
+		function translator() {
+		
+		if (translate.value == "English") {
+
+			page1.innerHTML = localStorage.getItem("story1Page1");	
+ 
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story1Page1")
+			localStorage.setItem('currentStory', speech);	
+
+		}
+
+		else if (translate.value == "Malay") {
+
+			page1.innerHTML = localStorage.getItem("story1Page1Malay");
+
+			saveLanguage = translate.value;
+			localStorage.setItem("selectedLanguage", saveLanguage);
+
+			speech = localStorage.getItem("story1Page1Malay")
+			localStorage.setItem("currentStory", speech);
+		}
+		
+	}
+
+	function save() {
+
+		if (saveLanguage == "English") {
+
+			page1.innerHTML = localStorage.getItem("story1Page1");
+
+		}
+
+		else if (saveLanguage == "Malay") {
+
+			page1.innerHTML = localStorage.getItem("story1Page1Malay");
+		}
+
+		if (saveFontSize == "1") {
+
+			page1.style.fontSize = "1em";
+
+		}
+
+		else if (saveFontSize == "1.2") {
+
+			page1.style.fontSize = "1.2em";
+		}
+
+		else if (saveFontSize == "1.4") {
+
+			page1.style.fontSize = "1.4em";
+		}
+
+
+    if (localStorage['voicelist']) {
+        inputVoice.value = localStorage['voicelist'];
+	    }
+
+	   saveVoices.onclick = function(){
+	       localStorage['voicelist'] = inputVoice.value;
+	    }
+
+	    resetVoices.onclick = function(){
+	       voicelist.selectedIndex = 0;
+	       var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
+	       localStorage['voicelist'] = defaultVoice;
+	    }
+
+	}
+
+	function sizeChanger() {
+
+		if (choice.value == "1" || choice.value == "0" ) {
+			page1.style.fontSize = "1em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+		else if (choice.value == "1.2") {
+			page1.style.fontSize = "1.2em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+
+		else if (choice.value == "1.4") {
+			page1.style.fontSize = "1.4em";
+			saveFontSize = choice.value;
+			localStorage.setItem("selectedFontSize", saveFontSize);
+		}
+	}
+
+
+
+	// VOICE 
+
+		var voicelist = document.querySelector('#voicelist');
+		var btnRead= document.querySelector('#read');
+
+		var winSyn = window.speechSynthesis;
+
+		var voices = [];
+
+		GetVoices();
+
+		if (speechSynthesis !== undefined) {
+
+			speechSynthesis.onvoiceschanged = GetVoices;
+
+		}
+
+		btnRead.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("currentStory"));
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			winSyn.speak(toSpeak);
+		});
+
+		function pause(){
+			winSyn.pause();
+		}
+
+		function resume(){
+			winSyn.resume();
+		}
+		function stop(){
+			winSyn.cancel();
+		}
+
+		function GetVoices(){
+			voices = winSyn.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+	</script>
+
+
+
+</body>
+</html>

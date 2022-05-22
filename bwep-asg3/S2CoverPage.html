@@ -162,20 +162,19 @@
 		background: transparent;
 	}
 
-		.kontext.capable.animate .layer .dimmer {
-			-webkit-transition: background 1s ease;
-			   -moz-transition: background 1s ease;
-			        transition: background 1s ease;
-		}
+	.kontext.capable.animate .layer .dimmer {
+		-webkit-transition: background 1s ease;
+		   -moz-transition: background 1s ease;
+		        transition: background 1s ease;
+	}
 
-		.kontext.capable.animate .layer.hide .dimmer {
-			visibility: visible;
-			background: rgba( 0, 0, 0, 0.7 );
-		}
+	.kontext.capable.animate .layer.hide .dimmer {
+		visibility: visible;
+		background: rgba( 0, 0, 0, 0.7 );
+	}
 
 
-	html,
-	body {
+	html, body {
 		width: 100%;
 		height: 100%;
 		padding: 0;
@@ -185,17 +184,11 @@
 
 	body {
 		background-color: #222;
-		/*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2NkYGD4D8SMQAwGcAY2AbBKDBUAVuYCBQPd34sAAAAASUVORK5CYII=);*/
 		background-repeat: repeat;
 
 		font-family: Helvetica, sans-serif;
 		font-size: 16px;
 		color: #fff;
-	}
-
-	#story2Avg {
-		font-family: 'Bebas Neue', cursive;
-		font-size: 30px;
 	}
 
 	.layer {
@@ -217,15 +210,15 @@
 	}
 
 	.layer.one {
-		background: #dc6c5f;
+		background-image: url("Images/s2.jpg");
 	}
 
 	.layer.two {
-		background: #dc6c5f;
+		background-image: url("Images/s2.jpg");
 	}
 
 	.layer.three {
-		background: #dc6c5f;
+		background-image: url("Images/s2.jpg");
 	}
 
 	.bullets {
@@ -260,6 +253,12 @@
 		background: #fff;
 	}
 
+	#averageRating {
+			font-family: 'Bebas Neue', cursive;
+			font-size: 30px;
+		}
+
+
 	@media screen and (max-width: 479px) {
 		body {
 			font-size: 7px;
@@ -284,8 +283,6 @@
 		
 	}
 
-	/*IFRAME*/
-
 	#height{
 		height: 700px;
 
@@ -303,17 +300,6 @@
 		grid-row-end: 3;
 	}
 
-
-	/*COVERPAGE*/
-
-	.container {
-
-		margin: 0 auto;
-		width: 60%;
-		height: 80vh;
-		background-color: steelblue;
-		text-align: center;
-	}
 		
 	a {
 		text-decoration: none;
@@ -350,15 +336,15 @@
 
 </style>
 </head>
-<body onload="showAverage()">
+<body onload="showAvgR()">
 
 	<article class="kontext" id="page1">
 	<div class="layer one show">
 		<div><h2>THE MIGHTY BABAU</h2></div>
 
-			<div class="babau"><img src="images/babau.jpg"></div>
+			<div><img src="Images/tmb.png"></div>
 
-				<div id="story2Avg" ></div>
+				<div id="averageRating" ></div>
 
 			<p>Use the dots below or your keyboard arrows.</p>
 
@@ -377,14 +363,6 @@
 
 <ul class="bullets"></ul>
 
-<script type="text/javascript">
-	function showAverage() {
-
-		story2AvgRating = document.getElementById("story2Avg");
-
-		story2AvgRating.innerHTML = "Average Rating: " + localStorage.getItem("story2AvgRating")
-	}
-</script>
 <script type="text/javascript">
 window.kontext = function( container ) {
 
@@ -546,10 +524,6 @@ kontext.Signal.prototype.dispatch = function() {
 }
 
   
-
-  
-  
-
 // Create a new instance of kontext
 var k = kontext( document.querySelector( '.kontext' ) );
 
@@ -580,6 +554,15 @@ document.addEventListener( 'keyup', function( event ) {
 	if( event.keyCode === 37 ) k.prev();
 	if( event.keyCode === 39 ) k.next();
 }, false );
+
+
+function showAvgR() {
+
+		average = document.getElementById("averageRating");
+
+		average.innerHTML = "Average rating: " + localStorage.getItem("story2AvgRating");
+	}
+
 </script>
 
 

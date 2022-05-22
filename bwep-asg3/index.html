@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+
+<link href='https://fonts.googleapis.com/css?family=Bowlby One SC' rel='stylesheet'>
+
+<style type="text/css">
+
+	body {
+		background-image: url("Images/index2.png");
+		background-repeat: no-repeat;
+		font-size: 14px;
+		
+	}
+
+	.grid1>div>img {
+
+		width: 30%;
+		height: 50%;
+	}
+
+	#title {
+
+		color: black;
+		font-family: 'Bowlby One SC';
+		font-size: 1.5em;
+	}
+	
+	.container {
+		display: grid;
+		grid-template-columns: 60% 40%;
+		width: 80%;
+		/*background-color: white;*/
+		margin: 0 auto;
+		grid-gap: 1.5em 1.5em;
+	}
+
+	.grid1 {
+		display: grid;
+		grid-template-rows: 10% 50% 10%;
+		text-align: center;
+		margin-top: 40%;
+	}
+
+	.grid1>div:nth-child(4) {
+
+		font-size: 3em;
+		font-family: 'Bowlby One SC';
+		margin-top: 5%;
+	}
+
+	.grid1>div:nth-child(5) {
+
+		margin-left: 20%;
+	}
+
+	.grid2 {
+		display: grid;
+		grid-template-rows: 10% 25% 5% 25% 5% 25% 5%;
+		margin: 0 auto;
+		text-align: center;
+		/*border-collapse: collapse;*/
+	}
+
+	.grid2>div:nth-child(even) {
+		margin-top: 65px;
+	}
+
+	.grid2>div>img {
+		width: 80%;
+		height: 100%;
+	}
+
+	.container>div:nth-child(1) {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+
+
+	.container>div:nth-child(2) {
+		grid-column-start: 2;
+		grid-column-end: 3;
+	}
+
+	#image {
+		width: 90%;
+		height: 80%;
+		margin-top: 60px;
+	}
+
+	h3 {
+		margin-top: 5px;
+
+	}
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	.brightness-box{
+	  width: 400px;
+	  height: 60px;
+	  background: #f9f9f9;
+	  border-radius: 8px;
+	  padding: 0 20px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-between;
+	}
+
+	.brightness-box i{
+	  margin: 0 10px;
+	}
+
+	#range{
+	  width: 100%;
+	  -webkit-appearance: none;
+	  background: #0a85ff;
+	  height: 3px;
+	  outline: none;
+	}
+
+	#range::-webkit-slider-thumb{
+	  -webkit-appearance: none;
+	  width: 22px;
+	  height: 22px;
+	  background: #333;
+	  border-radius: 50%;
+	  cursor: pointer;
+	}
+
+
+	@media screen and (max-width: 479px) {
+
+		#image {
+			height: 40vh;
+			width: 50vh;
+			margin-top: 10px;
+		}
+
+		#title {
+
+		color: black;
+		font-family: 'Bowlby One SC';
+		font-size: 1em;
+		}
+
+		#story {
+
+			margin-bottom: 10px;
+		}
+
+
+		.container {
+			display: grid;
+			grid-template-columns: 1fr;
+			border: none;
+			grid-template-rows: 30% 60%;
+			margin: 0 auto;
+		}
+
+		.grid1 {
+
+			width: 75%;
+			height: 70vh;
+			margin: 0 auto;
+			margin-top: 70px;
+			font-size: 20px;
+			grid-template-rows: 10% 60% 30%;
+			justify-content: center;
+
+		}
+
+		.grid1>div:nth-child(2) {
+			margin-bottom: 150px;
+		}
+
+		.grid2 {
+			display: grid;
+			grid-template-rows: 5% 20% 5% 20% 5% 20% 5%;
+			margin: 0 auto;
+			text-align: center;
+			width: 55%;
+		}
+
+		.grid1>div:nth-child(4), .grid1>div:nth-child(5) {
+
+			visibility: hidden;
+
+		}
+
+
+		.container>div:nth-child(2) {
+
+			width: 80vh;
+			grid-column-start: 1;
+			grid-column-end: 2;
+			grid-row-start: 2;
+			grid-row-end: 3;
+		}
+
+		.grid2>img {
+
+			width: 60%;
+			height: 80%;
+		}
+
+		h1 {
+			font-size: 20px;
+			color: black;
+		}
+
+		h2 {
+			font-size: 13px;
+		}
+
+	}
+
+</style>
+</head>
+<body onload="randomStory()">
+
+
+<div class="container">
+
+	<div class="grid1">
+
+		<h1><div id="title"></div></h1>
+		<div><img id="image"></div>
+		<h2><div id="story"></div></h2>
+
+		<div>Adjust Contrast</div>
+      	<div class="brightness-box">
+        <input type="range" id="range" min="10" max="100" value="100">
+        </div>
+	</div>
+
+	<div class="grid2">
+		
+		<div><h1>AVAILABLE STORY</h1></div>
+		<div><img src="Images/nm.png"></div>
+		<h3><div><a href="S1CoverPage.html">Nahkoda Manis</a></div></h3>
+		<div><img src="Images/tmb.png"></div>
+		<h3><div><a href="S2CoverPage.html">The Mighty Babau</a></div></h3>
+		<div><img src="Images/sg.png"></div>
+		<h3><div><a href="S3CoverPage.html">Singapore, The Lion City</a></div></h3>
+
+	</div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+		var title1 = "NAHKODA MANIS";
+		var title2 = "THE MIGHTY BABAU";
+		var title3 = "SINGAPORE, THE LION CITY";
+
+		var story1 = "In Brunei folklore, the legend of Nakhoda Manis (literally the “Captain Sweet” in Malay) tells of how an unfilial son was turned to the rock outcropping known as Jong Batu.";
+
+		var story2 = "The villagers of Kampong Serai were scared and they had good reason to be! Nearly every night a tiger roamed their village. Nobody felt safe anymore and they decided something had to be done.";
+
+		var story3 = "Singapura, the Lion City (Singapore) It is said that long, long ago, a prince in Palembang called Sang Nila Utama was bored. He decided to go hunting with his men. In the woods they saw a deer, but as he tried to shoot, it moved swiftly. The prince and his men followed, trying to catch it.";
+
+
+	function randomStory() {
+
+		localStorage.setItem("title1", title1);
+		localStorage.setItem("title2", title2);
+		localStorage.setItem("title3", title3);
+
+		localStorage.setItem("story1", story1);
+		localStorage.setItem("story2", story2);
+		localStorage.setItem("story3", story3);
+
+		var randomNum = Math.ceil(Math.random() * 100 % 3);
+
+		var title = document.getElementById("title");
+		var image = document.getElementById("image");
+		var story = document.getElementById("story");	
+
+		if (randomNum == 1) {
+
+			title.innerHTML = localStorage.getItem("title1");
+			image.src = "Images/nm.png";
+			story.innerHTML = localStorage.getItem("story1");
+			
+		}
+
+		else if (randomNum == 2) {
+			title.innerHTML = localStorage.getItem("title2");
+			image.src = "Images/tmb.png";
+			story.innerHTML = localStorage.getItem("story2");
+			
+		}
+
+		else if (randomNum == 3) {
+
+			title.innerHTML = localStorage.getItem("title3");
+			image.src = "Images/sg.png";
+			story.innerHTML = localStorage.getItem("story3");		
+		}
+	}
+
+
+	// Contrast
+	 rangeInput = document.getElementById('range');
+      container = document.getElementsByClassName('container')[0];
+
+      rangeInput.addEventListener("change",function(){
+        container.style.filter = "brightness(" + rangeInput.value + "%)";
+      });
+
+
+</script>
+
+
+</body>
+</html>

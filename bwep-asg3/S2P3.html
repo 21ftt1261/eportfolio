@@ -6,7 +6,10 @@
 	<title>Story2Page3</title>
 
 <style type="text/css">
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+	@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 	body {
 		background-color: white;
@@ -29,6 +32,7 @@
 
 	#page3 {
 		line-height: 30px;
+		font-family: 'Roboto Slab', serif;
 	}
 
 	.image {
@@ -41,27 +45,23 @@
 	}
 
 	.grid1 {
-		width: 65%;
+		width: 85%;
 		display: grid;
-		grid-template-columns: 30% 30% 30%;
+		grid-template-columns: 20% 20% 40%;
 		margin: 0 auto;
-		border: 1px solid;
-		padding: 10px;
-	}
-
-	/*RATING CSS*/
-	.front>h4 {
-		text-align: center;
+		justify-content: center;
+		justify-content: center;
+		font-family: 'Amiri', serif;
 
 	}
 
 	.grid2 {
 		width: 40%;
-		border: 1px solid;
 		display: grid;
 		grid-template-columns: 30% 35% 10%;
 		margin-left: 70%;
 		font-size: 1.2em;
+		font-family: 'Lobster', cursive;
 	}
 
 	.grid2>div:nth-child(3), .grid2>div:nth-child(1) {
@@ -140,13 +140,13 @@
 	
 	<div id="page3">
 
-	<p>That evening Babau was brought to the middle of the jungle and was tied to a tree. The villagers hid in a hut on a tree top. The tiger appeared but Babau pretended he was already dead instinctively knowing that the tiger preferred fresh meat. The tiger, believing Babau to be dead, turned his back and started to leave. Babau saw his chance to strike the tiger’s stomach with his horns inflicting injury enough to scare the tiger away. He never came back.</p>
+	That evening Babau was brought to the middle of the jungle and was tied to a tree. The villagers hid in a hut on a tree top. The tiger appeared but Babau pretended he was already dead instinctively knowing that the tiger preferred fresh meat. The tiger, believing Babau to be dead, turned his back and started to leave. Babau saw his chance to strike the tiger’s stomach with his horns inflicting injury enough to scare the tiger away. He never came back.
 
-	<p>The villagers were surprised by the intelligence, cunning, bravery, and swiftness of Babau. Was this the same Babau they called foolish, fat, and lazy every day?</p>
+	The villagers were surprised by the intelligence, cunning, bravery, and swiftness of Babau. Was this the same Babau they called foolish, fat, and lazy every day?
 
-	<p>The next morning the villagers were not sure how to treat Babau. But Babau held no grudges and in fact he was ready to be put to work as usual. Embarrassed by their treatment of Babau the villagers came up with a different version of their song:</p>
+	The next morning the villagers were not sure how to treat Babau. But Babau held no grudges and in fact he was ready to be put to work as usual. Embarrassed by their treatment of Babau the villagers came up with a different version of their song:
 	
-	<p>Babau Babau
+	Babau Babau
 	Cunning Babau,
 	Babau Babau
 	Strong Babau,
@@ -155,7 +155,7 @@
 	Babau, Babau
 	Smart Babau,
 	What are you going to do
-	Now that we respect you?</p>
+	Now that we respect you?
 
 	</div>
 
@@ -173,7 +173,7 @@
 		    <input type="radio" id="star1" name="rate" value="1">
 		    <label for="star1" title="text">1 star</label>
 		 </div>
-		 <button onclick="average()" class="btn">Rate!</button>
+		 <div onclick="calAverage()"><button class="btn">Rate!</button></div>
 	</div>
 
 	<div class="grid1">
@@ -193,23 +193,21 @@
 				<option value="0" >Select</option>
 				<option value="1" style="font-size:1em">Small A</option>
 				<option value="1.2" style="font-size:1.2em">Medium A</option>
-				<option value="1.5" style="font-size:1.5em">Big A</option>
+				<option value="1.4" style="font-size:1.4em">Big A</option>
 			</select>
 		</div>
 
 		<div>
-			<div>
-			<h3>Select Voice</h3>
-			<select id="voicelist"></select>
-			</div>
-			<br>
+			<h3>Select Voice <select id="voicelist"></select></h3>
 
 			
 			<div>
-			<button id="speak">Speak</button>
+			<button id="read">Read</button>
 			<button onclick="pause()">Pause</button>
 			<button onclick="resume()">Resume</button>
 			<button onclick="stop()">Stop</button>
+			<button id="saveVoice">Save Voice</button>
+			<button id="resetVoice">Reset Voice</button>
 			</div>
 		</div>
 
@@ -237,7 +235,11 @@
 
 		var speech;
 
-	function translator() {
+		var inputVoice = document.getElementById('voicelist');
+    	var saveVoices = document.getElementById('saveVoice');
+    	var resetVoices = document.getElementById('resetVoice');
+
+		function translator() {
 
 		if (translate.value == "English") {
 
@@ -285,10 +287,24 @@
 
 			page3.style.fontSize = "1.2em";
 
-		} else if (saveFontSize == "1.5") {
+		} else if (saveFontSize == "1.4") {
 
-			page3.style.fontSize = "1.5em"
+			page3.style.fontSize = "1.4em"
 		}
+
+		if (localStorage['voicelist']) {
+        inputVoice.value = localStorage['voicelist'];
+	    }
+
+	   saveVoices.onclick = function(){
+	       localStorage['voicelist'] = inputVoice.value;
+	    }
+
+	    resetVoices.onclick = function(){
+	       voicelist.selectedIndex = 0;
+	       var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
+	       localStorage['voicelist'] = defaultVoice;
+	    }
 
 	}
 
@@ -306,9 +322,9 @@
 			saveFontSize = choice.value;
 			localStorage.setItem("selectedFontSize", saveFontSize);
 
-		} else if (choice.value == "1.5") {
+		} else if (choice.value == "1.4") {
 
-			page3.style.fontSize = "1.5em";
+			page3.style.fontSize = "1.4em";
 			saveFontSize = choice.value;
 			localStorage.setItem("selectedFontSize", saveFontSize);
 		}
@@ -319,9 +335,9 @@
 	// VOICE 
 
 		var voicelist = document.querySelector('#voicelist');
-		var btnSpeak = document.querySelector('#speak');
+		var btnRead = document.querySelector('#read');
 
-		var tts = window.speechSynthesis;
+		var winSyn = window.speechSynthesis;
 
 		var voices = [];
 
@@ -333,30 +349,30 @@
 
 		}
 
-		btnSpeak.addEventListener('click', ()=>{
-			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("story2page3"));
+		btnRead.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(localStorage.getItem("currentStory"));
 			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
 			voices.forEach((voice)=>{
 				if(voice.name === selectedVoiceName){
 					toSpeak.voice = voice;
 				}
 			});
-			tts.speak(toSpeak);
+			winSyn.speak(toSpeak);
 		});
 
 		function pause(){
-			tts.pause();
+			winSyn.pause();
 		}
 
 		function resume(){
-			tts.resume();
+			winSyn.resume();
 		}
 		function stop(){
-			tts.cancel();
+			winSyn.cancel();
 		}
 
 		function GetVoices(){
-			voices = tts.getVoices();
+			voices = winSyn.getVoices();
 			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
 			voicelist.innerHTML = '';
 			voices.forEach((voice)=>{
@@ -377,7 +393,7 @@
         var star1 = document.getElementById("star1");
         var rate = 0;
         var total = 0;
-        var inti = document.getElementById("inti");
+        var average = document.getElementById("averageRating");
         var avgRate = 0;
 
         var next5 = document.getElementById("next5");
@@ -387,45 +403,45 @@
         var next1 = document.getElementById("next1");
         var avg = localStorage.getItem("rate");
     
-    function average() {
+	    function calAverage() {
 
-        if (star5.checked) {
-            rate = 5;
-            total = 1;
-        }
-        if (star4.checked) {
-            rate = 4;
-            total = 1;
-        }
-        if (star3.checked) {
-            rate = 3;
-            total = 1;
-        }
-        if (star2.checked) {
-            rate = 2;
-            total = 1;
-        }
-        if (star1.checked) {
-            rate = 1;
-            total = 1;
-        }
+	        if (star5.checked) {
+	            rate = 5;
+	            total = 1;
+	        }
+	        if (star4.checked) {
+	            rate = 4;
+	            total = 1;
+	        }
+	        if (star3.checked) {
+	            rate = 3;
+	            total = 1;
+	        }
+	        if (star2.checked) {
+	            rate = 2;
+	            total = 1;
+	        }
+	        if (star1.checked) {
+	            rate = 1;
+	            total = 1;
+	        }
 
-        var storeRate = localStorage.getItem("story2Rating");
-        var storeTotal = localStorage.getItem("story2Total");
+	        var storeRate = localStorage.getItem("story2Rating");
+	        var storeTotal = localStorage.getItem("story2Total");
 
-        rate += Number(storeRate);
-        total += Number(storeTotal);
-        avgRate = rate / total;
+	        rate += Number(storeRate);
+	        total += Number(storeTotal);
+	        avgRate = rate / total;
 
-        localStorage.setItem("story2Rating", rate);
-        localStorage.setItem("story2Total", total);
-        localStorage.setItem("story2AvgRating" ,avgRate);
+	        var rounded = Math.round(avgRate * 10) / 10; 
 
-        averageRating.innerHTML = "Average rating: " + localStorage.getItem("story2AvgRating");
+	        localStorage.setItem("story2Rating", rate);
+	        localStorage.setItem("story2Total", total);
+	        localStorage.setItem("story2AvgRating" ,avgRate);  
 
-        alert("You have rate the story.");
+	        alert("You have rate the story.");
 
-    }
+	    }
 
 	</script>
 
